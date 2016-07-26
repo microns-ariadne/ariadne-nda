@@ -4,7 +4,7 @@ import string
 
 
 class BaseConf(object):
-    MONGO_HOST = os.environ['MONGO_HOST'] or 'localhost'
+    MONGO_HOST = os.environ.get('MONGO_HOST') or 'localhost'
 
 
 class DevelopmentConf(BaseConf):
