@@ -2,7 +2,7 @@ import pytest
 import json
 from ariadne_nda import create_app
 
-from tests.params import hello_endpoint
+from tests.params import hello_endpoint, experiment_endpoint
 
 class InitApp(object):
     def __init__(self):
@@ -33,6 +33,10 @@ class BaseEndpoint(object):
 
 class TestHello(BaseEndpoint):
     params = hello_endpoint.params
+
+
+class TestExperiment(BaseEndpoint):
+    params = experiment_endpoint.params
 
 
 def pytest_generate_tests(metafunc):
