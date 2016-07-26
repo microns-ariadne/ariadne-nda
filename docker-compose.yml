@@ -1,0 +1,18 @@
+version: '2'
+services:
+  ariadne_nda:
+    restart: always
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/source/
+    environment:
+      - 'MONGO_HOST=mongo_db'
+    links:
+      - mongo_db
+    depends_on:
+      - mongo_db
+  mongo_db:
+    image: mongo:3.3
+    restart: always
