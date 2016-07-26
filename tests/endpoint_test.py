@@ -2,11 +2,12 @@ import pytest
 import json
 from ariadne_nda import create_app
 
-from tests.params import hello_endpoint, experiment_endpoint
+from tests.params import experiment_endpoint
+
 
 class InitApp(object):
     def __init__(self):
-        self.app = create_app()
+        self.app = create_app(config_level='testing')
         self.app_context = self.app.app_context()
         self.app_context.push()
         self.test_client = self.app.test_client()
@@ -30,9 +31,13 @@ class BaseEndpoint(object):
         assert result == resp
         assert _resp.status_code == statuscode
 
-
-class TestHello(BaseEndpoint):
-    params = hello_endpoint.params
+    def test_post(self, app, uri, req, statuscode, resp):
+        _resp = app.test_client.post(uri, data=json.dumps(req),
+                                     follow_redirects=True,
+                                     content_type='application/json')
+        result = json.loads(_resp.data.decode('utf-8'))
+        assert result == resp
+        assert _resp.status_code == statuscode
 
 
 class TestExperiment(BaseEndpoint):

@@ -1,15 +1,24 @@
+import os
+import random
+import string
 
 
-class BaseConfig(object):
-    pass
+class BaseConf(object):
+    MONGO_HOST = os.environ['MONGO_HOST'] or 'localhost'
 
 
-class Development(BaseConfig):
+class DevelopmentConf(BaseConf):
     DEBUG = True
 
 
-config = {
-    'development': Development,
+class TestingConf(BaseConf):
+    MONGO_DBNAME = ''.join(random.choice(string.ascii_lowercase)
+                           for _ in range(16))
 
-    'default': Development
+
+config = {
+    'development': DevelopmentConf,
+    'testing': TestingConf,
+
+    'default': DevelopmentConf
 }

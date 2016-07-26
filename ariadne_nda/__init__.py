@@ -1,5 +1,5 @@
 from flask import Flask
-from flask.ext.pymongo import PyMongo
+from flask_pymongo import PyMongo
 from ariadne_nda.config import config
 
 
