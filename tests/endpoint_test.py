@@ -2,7 +2,8 @@ import pytest
 import json
 from ariadne_nda import create_app
 
-from tests.params import hello_endpoint
+from tests.params import anatomy_endpoint
+from tests.params import physiology_endpoint
 
 class InitApp(object):
     def __init__(self):
@@ -31,13 +32,17 @@ class BaseEndpoint(object):
         assert _resp.status_code == statuscode
 
 
-class TestHello(BaseEndpoint):
-    params = hello_endpoint.params
-
-
 def pytest_generate_tests(metafunc):
     func_arg_list = metafunc.cls.params[metafunc.function.__name__]
     arg_names = list(func_arg_list[0])
     metafunc.parametrize(arg_names,
                          [[func_args[name] for name in arg_names]
                           for func_args in func_arg_list])
+
+
+class TestAnatomy(BaseEndpoint):
+    params = anatomy_endpoint.params
+
+
+class TestPhysiology(BaseEndpoint):
+    params = physiology_endpoint.params
