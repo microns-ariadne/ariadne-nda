@@ -6,4 +6,5 @@ api_blueprint = Blueprint('api', __name__)
 api = Api(api_blueprint)
 
 
-from . import hello  # nopep8
+from . import anatomy  # nopep8
+from . import physiology  # nopep8
