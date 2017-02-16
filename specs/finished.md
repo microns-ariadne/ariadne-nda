@@ -1,4 +1,4 @@
-hannel Metadata
+## Channel Metadata
 
 - **ARIADNE-NDA Layer**
 ```

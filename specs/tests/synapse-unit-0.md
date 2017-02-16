@@ -3,7 +3,7 @@
 - **Start with this on Butterfly**
 ```
 {
-	neuron1: [   0,   0,   0,   0,   5,   5,   5,   5],
+  neuron1: [   0,   0,   0,   0,   5,   5,   5,   5],
   neuron2: [   1,   2,   3,   4,   6,   7,   8,   0],
   x:       [   0,   0,   0,   0, 512, 512, 512, 512],
   y:       [ 256, 512,1024,2048, 256, 512,1024,2048],
@@ -13,12 +13,12 @@
 - **Start with query**
 ```
 {
-x: 0,
-y: 0,
-z: 0,
-width: 1040,
-height: 1040,
-depth: 1040
+  x: 0,
+  y: 0,
+  z: 0,
+  width: 1040,
+  height: 1040,
+  depth: 1040
 }
 ```
 - **Request 0**
@@ -36,8 +36,8 @@ depth: 1040
 - **Response 1 Example**
 ```
 {
-synapse_id = 's5',
-synapse_parent_pre= 'n5',
-synapse_parent_post= 'n7'
+  synapse_id = 's5',
+  synapse_parent_pre= 'n5',
+  synapse_parent_post= 'n7'
 }
 ```
