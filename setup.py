@@ -15,7 +15,8 @@ INSTALL_REQ = [
     'Flask>=0.10.1',
     'Flask-RESTful>=0.3.5',
     'Flask-Script>=2.0.5',
-    'marshmallow>=2.7.3'
+    'marshmallow>=2.7.3',
+    'connexion>=1.1.5'
 ]
 
 
