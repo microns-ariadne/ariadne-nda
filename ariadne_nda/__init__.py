@@ -17,4 +17,10 @@ def create_app(config_level='default'):
         resolver=resolver.RestyResolver('ariadne_nda.api.anatomy')
     )
 
+    capp.add_api(
+        'api/physiology.yaml',
+        base_path='/api/v0.1/physiology',
+        resolver=resolver.RestyResolver('ariadne_nda.api.physiology')
+    )
+
     return capp.app

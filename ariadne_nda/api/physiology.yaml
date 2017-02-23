@@ -1,0 +1,264 @@
+swagger: '2.0'
+info:
+  title: MICrONS Ariadne NDA Physiology API
+  version: "0.1"
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /animals:
+    get:
+      tags: [Animals]
+      summary: Get all animals
+      responses:
+        200:
+          description: Return animals
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Animal'
+
+  /animal_info:
+    get:
+      tags: [AnimalInfos]
+      summary: Get animal info
+      responses:
+        200:
+          description: Return animal_info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AnimalInfo'
+
+  /sessions:
+    get:
+      tags: [Sessions]
+      summary: Get all sessions
+      responses:
+        200:
+          description: Return sessions
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Session'
+
+  /session_info:
+    get:
+      tags: [SessionInfo]
+      summary: Get session info
+      responses:
+        200:
+          description: Return session info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/SessionInfo'
+
+  /runs:
+    get:
+      tags: [Runs]
+      summary: Get all runs
+      responses:
+        200:
+          description: Return runs
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Run'
+
+  /run_info:
+    get:
+      tags: [RunInfo]
+      summary: Get run info
+      responses:
+        200:
+          description: Return run info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RunInfo'
+
+  /cells:
+    get:
+      tags: [Cells]
+      summary: Get all cells
+      responses:
+        200:
+          description: Return cells
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Cell'
+
+  /cell_info:
+    get:
+      tags: [CellInfo]
+      summary: Get cell info
+      responses:
+        200:
+          description: Return cell info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CellInfo'
+
+  /trials:
+    get:
+      tags: [Trials]
+      summary: Get all trials
+      responses:
+        200:
+          description: Return trials
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Trial'
+
+  /trial_info:
+    get:
+      tags: [TrialInfo]
+      summary: Get trial info
+      responses:
+        200:
+          description: Return trial info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TrialInfo'
+
+  /raw_eye_tracking:
+    get:
+      tags: [RawEyeTracking]
+      summary: Get raw eye tracking
+      responses:
+        200:
+          description: Return raw eye tracking
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/RawEyeTracking'
+
+  /functional_time_course:
+    get:
+      tags: [FunctionalTimeCourse]
+      summary: Get functional time course
+      responses:
+        200:
+          description: Return functional time course
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/FunctionalTimeCourse'
+
+  /global_cells:
+    get:
+      tags: [GlobalCells]
+      summary: Get all global cells
+      responses:
+        200:
+          description: Return global cells
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/GlobalCell'
+
+  /cell_collections:
+    get:
+      tags: [CellCollections]
+      summary: Get all cell collections
+      responses:
+        200:
+          description: Return cell collections
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CellCollection'
+
+  /cell_collection_info:
+    get:
+      tags: [CellCollectionInfos]
+      summary: Get cell collection info
+      responses:
+        200:
+          description: Return cell collection info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/CellCollectionInfo'
+
+  /per_cell_metrics:
+    get:
+      tags: [PerCellMetrics]
+      summary: Get all per cell metrics
+      responses:
+        200:
+          description: Return experiments
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PerCellMetrics'
+
+  /per_cell_metric:
+    get:
+      tags: [PerCellMetric]
+      summary: Get per cell metric
+      responses:
+        200:
+          description: Return per cell metric
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PerCellMetric'
+
+  /per_cell_metric_info:
+    get:
+      tags: [PerCellMetricInfos]
+      summary: Get per cell metric info
+      responses:
+        200:
+          description: Return per cell metric info
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/PerCellMetricInfo'
+
+
+definitions:
+  Animal:
+    type: object
+  AnimalInfo:
+    type: object
+  Session:
+    type: object
+  SessionInfo:
+    type: object
+  Run:
+    type: object
+  RunInfo:
+    type: object
+  Cell:
+    type: object
+  CellInfo:
+    type: object
+  Trial:
+    type: object
+  TrialInfo:
+    type: object
+  RawEyeTracking:
+    type: object
+  FunctionalTimeCourse:
+    type: object
+  GlobalCell:
+    type: object
+  CellCollection:
+    type: object
+  CellCollectionInfo:
+    type: object
+  PerCellMetrics:
+    type: object
+  PerCellMetricInfo:
+    type: object
+  PerCellMetric:
+    type: object
