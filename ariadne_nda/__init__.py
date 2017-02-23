@@ -1,12 +1,26 @@
+import connexion
+from connexion import resolver
+
 from flask import Flask
+
 from ariadne_nda.config import config
 
 
 def create_app(config_level='default'):
-    app = Flask(__name__)
-    app.config.from_object(config[config_level])
+    capp = connexion.App(__name__)
 
-    from ariadne_nda.api_endpoints import api_blueprint
-    app.register_blueprint(api_blueprint, url_prefix='/api/v0.1')
+    capp.app.config.from_object(config[config_level])
 
-    return app
+    capp.add_api(
+        'api/anatomy.yaml',
+        base_path='/api/v0.1/anatomy',
+        resolver=resolver.RestyResolver('ariadne_nda.api.anatomy')
+    )
+
+    capp.add_api(
+        'api/physiology.yaml',
+        base_path='/api/v0.1/physiology',
+        resolver=resolver.RestyResolver('ariadne_nda.api.physiology')
+    )
+
+    return capp.app

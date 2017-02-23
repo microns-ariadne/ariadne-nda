@@ -1,0 +1,1 @@
+recursive-include ariadne_nda/api/*.yaml
