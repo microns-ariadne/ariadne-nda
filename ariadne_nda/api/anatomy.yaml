@@ -1,0 +1,123 @@
+swagger: '2.0'
+info:
+  title: MICrONS Ariadne NDA Anatomy API
+  version: "0.1"
+consumes:
+  - application/json
+produces:
+  - application/json
+
+paths:
+  /experiments:
+    get:
+      tags: [Experiments]
+      summary: Get all experiments
+      responses:
+        200:
+          description: Return experiments
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Experiment'
+
+  /samples:
+    get:
+      tags: [Samples]
+      summary: Get all samples
+      responses:
+        200:
+          description: Return samples
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Sample'
+
+  /datasets:
+    get:
+      tags: [Datasets]
+      summary: Get all datasets
+      responses:
+        200:
+          description: Return datasets
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Dataset'
+
+  /channels:
+    get:
+      tags: [Channels]
+      summary: Get all channels
+      responses:
+        200:
+          description: Return channels
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Channel'
+
+  /channel_metadata:
+    get:
+      tags: [ChannelMetadatas]
+      summary: Get all channel_metadatas
+      responses:
+        200:
+          description: Return channel_metadatas
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ChannelMetadata'
+
+  /entity_feature:
+    get:
+      tags: [EntityFeatures]
+      summary: Get all entity_features
+      responses:
+        200:
+          description: Return entity features
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/EntityFeature'
+
+  /data:
+    get:
+      tags: [Data]
+      summary: Get all data
+      responses:
+        200:
+          description: Return data
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Data'
+
+  /mask:
+    get:
+      tags: [Masks]
+      summary: Get all masks
+      responses:
+        200:
+          description: Return masks
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Mask'
+
+definitions:
+  Experiment:
+    type: object
+  Sample:
+    type: object
+  Dataset:
+    type: object
+  Channel:
+    type: object
+  ChannelMetadata:
+    type: object
+  EntityFeature:
+    type: object
+  Data:
+    type: object
+  Mask:
+    type: object
