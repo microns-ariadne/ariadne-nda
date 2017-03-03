@@ -10,3 +10,4 @@ pytz==2016.6.1
 six==1.10.0
 Werkzeug==0.11.10
 connexion==1.1.5
+requests==2.13.0
