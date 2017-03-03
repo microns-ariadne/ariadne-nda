@@ -31,7 +31,7 @@
 ```
 - **Request 1 Example for id=s5**
 ```
-/api/anatomy/entity_feature?feature=synapse_parent&id=s5&x=0&y=0&z=0&width=1040&height=1040&depth=1040&experiment=root&sample=test&dataset=iarpa2016_12&channel=synapse-neuroglancer
+/api/anatomy/entity_feature?feature=synapse_parent&id=s5&experiment=root&sample=test&dataset=iarpa2016_12&channel=synapse-neuroglancer
 ```
 - **Response 1 Example**
 ```
