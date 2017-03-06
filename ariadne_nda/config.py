@@ -1,3 +1,4 @@
+import os
 
 
 class BaseConfig(object):
@@ -10,6 +11,9 @@ class Development(BaseConfig):
 
 config = {
     'development': Development,
-
     'default': Development
 }
+
+
+def get(key, level='default'):
+    return os.environ.get(key, getattr(config[level], key, None))

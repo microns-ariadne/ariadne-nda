@@ -24,6 +24,12 @@ paths:
     get:
       tags: [Samples]
       summary: Get all samples
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
       responses:
         200:
           description: Return samples
@@ -36,6 +42,17 @@ paths:
     get:
       tags: [Datasets]
       summary: Get all datasets
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
+        - name: sample
+          description: Specify a sample name/id
+          in: query
+          type: string
+          required: true
       responses:
         200:
           description: Return datasets
@@ -47,7 +64,23 @@ paths:
   /channels:
     get:
       tags: [Channels]
-      summary: Get all channels
+      summary: Get channels for a dataset
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
+        - name: sample
+          description: Specify a sample name/id
+          in: query
+          type: string
+          required: true
+        - name: dataset
+          description: Specify a dataset name/id
+          in: query
+          type: string
+          required: true
       responses:
         200:
           description: Return channels
@@ -84,13 +117,61 @@ paths:
     get:
       tags: [Data]
       summary: Get all data
+      produces:
+        - image/png
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
+        - name: sample
+          description: Specify a sample name/id
+          in: query
+          type: string
+          required: true
+        - name: dataset
+          description: Specify a dataset name/id
+          in: query
+          type: string
+          required: true
+        - name: x
+          description: Specify x value
+          in: query
+          type: integer
+          required: true
+        - name: y
+          description: Specify y value
+          in: query
+          type: integer
+          required: true
+        - name: z
+          description: Specify z value
+          in: query
+          type: integer
+          required: true
+        - name: width
+          description: Specify width
+          in: query
+          type: integer
+          required: true
+        - name: height
+          description: Specify height
+          in: query
+          type: integer
+          required: true
+        - name: channel
+          description: Specify a channel name/id
+          in: query
+          type: string
+          required: true
       responses:
         200:
           description: Return data
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Data'
+          #schema:
+            #type: array
+            #items:
+              #$ref: '#/definitions/Data'
 
   /mask:
     get:
