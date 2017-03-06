@@ -92,7 +92,28 @@ paths:
   /channel_metadata:
     get:
       tags: [ChannelMetadatas]
-      summary: Get all channel_metadatas
+      summary: Get channel_metadata
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
+        - name: sample
+          description: Specify a sample name/id
+          in: query
+          type: string
+          required: true
+        - name: dataset
+          description: Specify a dataset name/id
+          in: query
+          type: string
+          required: true
+        - name: channel
+          description: Specify a channel name/id
+          in: query
+          type: string
+          required: true
       responses:
         200:
           description: Return channel_metadatas
