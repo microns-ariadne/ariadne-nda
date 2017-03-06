@@ -26,11 +26,11 @@
 
 - **ARIADNE-NDA Layer**
 ```
-/api/anatomy/data?experiment=root&sample=test&dataset=iarpa2016_12&x=0&y=0&z=0&width=512&height=512&channel=img
+/api/anatomy/data?experiment=root&sample=test&dataset=iarpa2016_12&x=0&y=0&z=0&width=512&height=512&channel=img&resolution=0
 ```
 - **butterfly.rc.fas.harvard.edu** [(live url)](https://butterfly.rc.fas.harvard.edu/api/data?experiment=root&sample=test&dataset=iarpa2016_12&x=0&y=0&z=0&width=512&height=512&channel=img)
 ```
-/api/data?experiment=root&sample=test&dataset=iarpa2016_12&x=0&y=0&z=0&width=512&height=512&channel=img
+/api/data?experiment=root&sample=test&dataset=iarpa2016_12&x=0&y=0&z=0&width=512&height=512&channel=img&resolution=0
 ```
 - **Response Examples**
 
