@@ -1,7 +1,8 @@
 from ariadne_nda import butterfly
 
 
-def search(experiment, sample, dataset, x, y, z, width, height, channel):
+def search(experiment, sample, dataset, x, y, z, width, height, channel,
+           format='png'):
     return butterfly.proxy(
         '/api/data',
         params=dict(
@@ -14,5 +15,6 @@ def search(experiment, sample, dataset, x, y, z, width, height, channel):
             width=width,
             height=height,
             channel=channel,
+            format=format,
         )
     )

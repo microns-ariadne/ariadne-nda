@@ -119,6 +119,7 @@ paths:
       summary: Get all data
       produces:
         - image/png
+        - image/tiff
       parameters:
         - name: experiment
           description: Specify an experiment name/id
@@ -165,6 +166,11 @@ paths:
           in: query
           type: string
           required: true
+        - name: format
+          description: Specify image format
+          in: query
+          type: string
+          required: false
       responses:
         200:
           description: Return data
