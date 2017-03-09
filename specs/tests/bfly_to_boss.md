@@ -7,6 +7,9 @@ Here's some pseudocode that shows how I would convert the part of the butterfly 
 
 *Make these changes*
 ```python
+# Constant
+BOSS.orientation = 'xy'
+
 # The same resolutin and z
 BOSS.resolution = BFLY.resolution
 BOSS.z_arg = BFLY.z
@@ -19,5 +22,5 @@ BOSS.x_arg = '{}:{}'.format(BFLY.x, BFLY.x + BFLY.width*(2**BFLY.resolution))
 
 *To Boss API*
 ```
-&z_arg=0&x_arg=0:1024&y_arg=0:1024&resolution=1
+orientation=xy&z_arg=0&x_arg=0:1024&y_arg=0:1024&resolution=1
 ```
