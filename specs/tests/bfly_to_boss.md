@@ -10,7 +10,7 @@ Here's some pseudocode that shows how I would convert the part of the butterfly 
 # Constant
 BOSS.orientation = 'xy'
 
-# The same resolutin and z
+# The same resolution and z
 BOSS.resolution = BFLY.resolution
 BOSS.z_arg = BFLY.z
 
