@@ -1,6 +1,8 @@
 Here's some pseudocode that shows how I would convert the part of the butterfly API to part of the BOSS API. Feel free to post here once a decison has been made for transforming the expermient, sample, dataset, and channel parameters.
 
-*From Butterfly API*
+* This will let you map from the [NDA SSD api/anatomy/data method](http://rc.hoff.in/SSD/System-Specification.pdf#page=8) to the BOSS API.
+
+*From Butterfly (NDA SSD) API*
 ```
 &x=0&y=0&z=0&width=512&height=512&resolution=1
 ```
