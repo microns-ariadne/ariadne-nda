@@ -7,7 +7,7 @@
 - id = 14
 
 ```
-http://viper.krash.net:2017/api/entity_feature?feature=is_synapse&id=14&experiment=a&sample=b&dataset=c&channel=d
+http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=is_synapse&id=14&experiment=a&sample=b&dataset=c&channel=d
 ```
 
 **Response:**
@@ -23,7 +23,7 @@ true
 - id = 14
 
 ```
-http://viper.krash.net:2017/api/entity_feature?feature=synapse_keypoint&id=14&experiment=a&sample=b&dataset=c&channel=d
+http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=synapse_keypoint&id=14&experiment=a&sample=b&dataset=c&channel=d
 ```
 
 **Response:**
@@ -43,7 +43,7 @@ http://viper.krash.net:2017/api/entity_feature?feature=synapse_keypoint&id=14&ex
 - id = 14
 
 ```
-http://viper.krash.net:2017/api/entity_feature?feature=synapse_parent&id=14&experiment=a&sample=b&dataset=c&channel=d&x=0&y=0&z=0&width=512&height=512&depth=100
+http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=synapse_parent&id=14&experiment=a&sample=b&dataset=c&channel=d&x=0&y=0&z=0&width=512&height=512&depth=100
 ```
 
 **Response:**
@@ -66,7 +66,7 @@ http://viper.krash.net:2017/api/entity_feature?feature=synapse_parent&id=14&expe
 - id = 18
 
 ```
-http://viper.krash.net:2017/api/entity_feature?feature=is_neuron&id=18&experiment=a&sample=b&dataset=c&channel=d
+http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=is_neuron&id=18&experiment=a&sample=b&dataset=c&channel=d
 ```
 
 **Response:**
@@ -82,7 +82,7 @@ true
 - id = 18
 
 ```
-http://viper.krash.net:2017/api/entity_feature?feature=neuron_keypoint&id=18&experiment=a&sample=b&dataset=c&channel=d
+http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=neuron_keypoint&id=18&experiment=a&sample=b&dataset=c&channel=d
 ```
 
 **Response:**
@@ -102,7 +102,7 @@ http://viper.krash.net:2017/api/entity_feature?feature=neuron_keypoint&id=18&exp
 - id = 18
 
 ```
-http://viper.krash.net:2017/api/entity_feature?feature=neuron_children&id=18&experiment=a&sample=b&dataset=c&channel=d
+http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=neuron_children&id=18&experiment=a&sample=b&dataset=c&channel=d
 ```
 
 **Response:**
@@ -123,7 +123,7 @@ http://viper.krash.net:2017/api/entity_feature?feature=neuron_children&id=18&exp
 - width,height,depth = 512,512,100
 
 ```
-http://viper.krash.net:2017/api/entity_feature?feature=synapse_ids&experiment=a&sample=b&dataset=c&channel=d&x=0&y=0&z=0&width=512&height=512&depth=100
+http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=synapse_ids&experiment=a&sample=b&dataset=c&channel=d&x=0&y=0&z=0&width=512&height=512&depth=100
 ```
 
 **Response:**
@@ -143,7 +143,7 @@ http://viper.krash.net:2017/api/entity_feature?feature=synapse_ids&experiment=a&
 - width,height,depth = 512,512,100
 
 ```
-http://viper.krash.net:2017/api/entity_feature?feature=neuron_ids&experiment=a&sample=b&dataset=c&channel=d&x=0&y=0&z=0&width=512&height=512&depth=100
+http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=neuron_ids&experiment=a&sample=b&dataset=c&channel=d&x=0&y=0&z=0&width=512&height=512&depth=100
 ```
 
 **Response:**
@@ -165,7 +165,7 @@ http://viper.krash.net:2017/api/entity_feature?feature=neuron_ids&experiment=a&s
 - width,height,depth = 512,512,100
 
 ```
-http://viper.krash.net:2017/api/entity_feature?feature=voxel_list&id=0&experiment=a&sample=b&dataset=c&channel=d&x=0&y=0&z=0&width=512&height=512&depth=100
+http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=voxel_list&id=0&experiment=a&sample=b&dataset=c&channel=d&x=0&y=0&z=0&width=512&height=512&depth=100
 ```
 
 **Response:**
