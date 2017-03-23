@@ -95,7 +95,7 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=neuron_keypoint&i
 }
 ```
 
-### S7: neuron_children
+### S8: neuron_children
 
 **Request**
 
