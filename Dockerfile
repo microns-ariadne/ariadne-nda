@@ -26,7 +26,6 @@ RUN pip3 --no-cache-dir install -e /usr/src/app/
 
 RUN apt-get remove -y \
       build-essential \
-      python3-dev \
       libpcre3-dev \
   && apt-get autoremove -y \
   && apt-get clean \
