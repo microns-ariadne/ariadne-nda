@@ -9,16 +9,22 @@ Here's some pseudocode that shows how I would convert the part of the butterfly 
 
 *Make these changes*
 ```python
-# Constant
+# Constant orientation
 BOSS.orientation = 'xy'
 
-# The same resolution and z
+# The same resolution and z origin
 BOSS.resolution = BFLY.resolution
 BOSS.z_arg = BFLY.z
 
-# Other arguments need scaling by resolution
-BOSS.y_arg = '{}:{}'.format(BFLY.y, BFLY.y + BFLY.height*(2**BFLY.resolution))
-BOSS.x_arg = '{}:{}'.format(BFLY.x, BFLY.x + BFLY.width*(2**BFLY.resolution))
+# Full resolution y_0, x_0, y_1, and x_1 bounds
+y_0 = BFLY.y*(2**BFLY.resolution)
+x_0 = BFLY.x*(2**BFLY.resolution)
+y_1 = y_0 + BFLY.height*(2**BFLY.resolution)
+x_1 = x_0 + BFLY.width*(2**BFLY.resolution)
+
+# Format the full resolution bounds as boss arguments
+BOSS.y_arg = '{}:{}'.format(y_0, y_1)
+BOSS.x_arg = '{}:{}'.format(x_0, x_1)
 ```
 
 
