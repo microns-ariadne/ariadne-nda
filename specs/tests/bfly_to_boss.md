@@ -16,7 +16,7 @@ BOSS.orientation = 'xy'
 BOSS.resolution = BFLY.resolution
 BOSS.z_arg = BFLY.z
 
-# Scale a position by the resolution
+# Scale by the resolution
 scale = 2**BFLY.resolution
 
 # Full resolution y_0, x_0, y_1, and x_1 bounds
