@@ -59,5 +59,6 @@ Performer Information (required to test):
 
 11.  Date(s) of preferred NDA testing.
 	- any date after 2017-04-01
+
 12.  Request submitted by (Name, email) - for final phase deliverable this should be performer team lead; for this testing can be any team member
-	- Whoever submits this
+	- The submitter of this document
