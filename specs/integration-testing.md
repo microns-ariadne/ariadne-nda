@@ -43,13 +43,13 @@ Performer Information (required to test):
 	- Dense: full volume
 
 8.  Boss collection/experiment/channel for structural neuron information (ground truth)
-	- a) integration-testing/2017-03-31/neuron_seg
+	- a) integration-testing/2017-03-31/neuron_gt
 		- /n/coxfs01/leek/results/ECS_aff_test_images/gt.h5
 	- b) Can IARPA assume that all labels in this channel are neurons for evaluation purposes?
 		- yes, all but id==0
 
 9.  Boss collection/experiment/channel for structural synapse information (ground truth)
-	- a) integration-testing/2017-03-31/neuron_seg
+	- a) integration-testing/2017-03-31/synapse_gt
 		- /n/coxfs01/leek/results/ECS_aff_test_images/synapse-gt.h5
 	- b) Can IARPA assume that all labels in this channel are synapses for evaluation purposes?
 		- yes, all but id==0
