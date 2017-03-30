@@ -23,17 +23,17 @@ Performer Information (required to test):
 	- integration-testing/2017-03-31/function_raw
 		- /n/coxfs01/thejohnhoffer/data/ASCII.png
 
-4a.  Boss collection/experiment/channel for structural neuron information (automated)
-	- integration-testing/2017-03-31/neuron_seg
+4.  Boss collection/experiment/channel for structural neuron information (automated)
+	- a) integration-testing/2017-03-31/neuron_seg
 		- /n/coxfs01/leek/results/ECS_aff_test_images/neuroproof.h5
-4b. Can IARPA assume that all labels in this channel are neurons for evaluation purposes?
-	- all with overlapping synapses in integration-testing/2017-03-31/synapse_seg
+	- b) Can IARPA assume that all labels in this channel are neurons for evaluation purposes?
+		- all with overlapping synapses in integration-testing/2017-03-31/synapse_seg
 
-5a.  Boss collection/experiment/channel for structural synapse information (automated)
-	- integration-testing/2017-03-31/synapse_seg
+5.  Boss collection/experiment/channel for structural synapse information (automated)
+	- a) integration-testing/2017-03-31/synapse_seg
 		- /n/coxfs01/leek/results/ECS_aff_test_images/synapse-segmentation.h5 
-5b. Can IARPA assume that all labels in this channel are synapses for evaluation purposes?
-	- yes, all but id==0
+	- b) Can IARPA assume that all labels in this channel are synapses for evaluation purposes?
+		- yes, all but id==0
 
 6.  Boss collection/experiment/channel for the functional neuron information containing neuron cell body segmentation or ROIs.
 	- integration-testing/2017-03-31/function_neuron
@@ -43,16 +43,16 @@ Performer Information (required to test):
 	- Dense: full volume
 
 8.  Boss collection/experiment/channel for structural neuron information (ground truth)
-	- integration-testing/2017-03-31/neuron_seg
+	- a) integration-testing/2017-03-31/neuron_seg
 		- /n/coxfs01/leek/results/ECS_aff_test_images/gt.h5
-8b. Can IARPA assume that all labels in this channel are neurons for evaluation purposes?
-	- yes, all but id==0
+	- b) Can IARPA assume that all labels in this channel are neurons for evaluation purposes?
+		- yes, all but id==0
 
 9.  Boss collection/experiment/channel for structural synapse information (ground truth)
-	- integration-testing/2017-03-31/neuron_seg
+	- a) integration-testing/2017-03-31/neuron_seg
 		- /n/coxfs01/leek/results/ECS_aff_test_images/synapse-gt.h5
-9b. Can IARPA assume that all labels in this channel are synapses for evaluation purposes?
-	- yes, all but id==0
+	- b) Can IARPA assume that all labels in this channel are synapses for evaluation purposes?
+		- yes, all but id==0
 
 10.  Location (x,y,z,resolution) of ground truth bounding box (if not dense, please specify)
 	- Dense: full volume
@@ -60,4 +60,4 @@ Performer Information (required to test):
 11.  Date(s) of preferred NDA testing.
 	- any date after 2017-04-01
 12.  Request submitted by (Name, email) - for final phase deliverable this should be performer team lead; for this testing can be any team member
-	- *****************************************************
+	- Whoever submits this
