@@ -21,7 +21,7 @@ Performer Information (required to test):
 
 3.  Boss collection/experiment/channel for the raw functional image data
 	- integration-testing/2017-03-31/function_raw
-		- /n/coxfs01/thejohnhoffer/data/ASCII.png
+		- /n/coxfs01/integration-testing/2017-03-31/jeff_raw.h5
 
 4.  Boss collection/experiment/channel for structural neuron information (automated)
 	- a) integration-testing/2017-03-31/neuron_seg
@@ -37,7 +37,7 @@ Performer Information (required to test):
 
 6.  Boss collection/experiment/channel for the functional neuron information containing neuron cell body segmentation or ROIs.
 	- integration-testing/2017-03-31/function_neuron
-		- /n/coxfs01/thejohnhoffer/data/ASCII.png
+		- /n/coxfs01/integration-testing/2017-03-31/jeff_seg.h5
 
 7.  Location (x,y,z,resolution) of automated reconstruction bounding box (if not dense, please specify)
 	- Dense: full volume
