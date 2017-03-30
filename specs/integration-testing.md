@@ -17,7 +17,7 @@ Performer Information (required to test):
 
 2.  Boss collection/experiment/channel for the raw structural image data
 	- integration-testing/2017-03-31/raw
-		- /n/coxfs01/leek/results/ECS_aff_test_images/ECS_iarpa_201610_gt_4x6x6/neocortex/sem/raw/0/0/0/image/*.png
+		- /n/coxfs01/leek/results/ECS_aff_test_images/image.h5
 
 3.  Boss collection/experiment/channel for the raw functional image data
 	- integration-testing/2017-03-31/function_raw
