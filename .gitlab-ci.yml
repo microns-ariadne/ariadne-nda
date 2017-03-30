@@ -1,0 +1,9 @@
+build_image:
+  image: docker:git
+  variables:
+    GODEBUG: 'netdns=cgo'
+  script:
+    - ci-scripts/build-image.sh
+  tags:
+    - docker
+    - docker-build
