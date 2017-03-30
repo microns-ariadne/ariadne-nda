@@ -37,6 +37,6 @@ RUN groupadd uwsgi
 RUN useradd -r -g uwsgi uwsgi
 USER uwsgi
 
-EXPOSE 80
+EXPOSE 8000
 
 CMD ["/usr/local/bin/start-ariadne-nda.sh"]
