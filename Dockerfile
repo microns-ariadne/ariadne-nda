@@ -18,8 +18,8 @@ WORKDIR /usr/src/app
 COPY requirements.txt /usr/src/app/
 COPY deploy/requirements.txt /usr/src/app/deploy/
 
-RUN pip3 --no-cache-dir install -r /usr/src/app/requirements.txt
 RUN pip3 --no-cache-dir install -r /usr/src/app/deploy/requirements.txt
+RUN pip3 --no-cache-dir install -r /usr/src/app/requirements.txt
 
 COPY . /usr/src/app
 RUN pip3 --no-cache-dir install -e /usr/src/app/
