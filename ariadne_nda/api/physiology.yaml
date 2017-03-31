@@ -6,11 +6,18 @@ consumes:
   - application/json
 produces:
   - application/json
+securityDefinitions:
+  bearer:
+    type: apiKey
+    name: Authorization
+    in: header
 
 paths:
   /animals:
     get:
       tags: [Animals]
+      security:
+        - bearer: []
       summary: Get all animals
       responses:
         200:
@@ -23,6 +30,8 @@ paths:
   /animal_info:
     get:
       tags: [AnimalInfos]
+      security:
+        - bearer: []
       summary: Get animal info
       responses:
         200:
@@ -35,6 +44,8 @@ paths:
   /sessions:
     get:
       tags: [Sessions]
+      security:
+        - bearer: []
       summary: Get all sessions
       responses:
         200:
@@ -47,6 +58,8 @@ paths:
   /session_info:
     get:
       tags: [SessionInfo]
+      security:
+        - bearer: []
       summary: Get session info
       responses:
         200:
@@ -59,6 +72,8 @@ paths:
   /runs:
     get:
       tags: [Runs]
+      security:
+        - bearer: []
       summary: Get all runs
       responses:
         200:
@@ -71,6 +86,8 @@ paths:
   /run_info:
     get:
       tags: [RunInfo]
+      security:
+        - bearer: []
       summary: Get run info
       responses:
         200:
@@ -83,6 +100,8 @@ paths:
   /cells:
     get:
       tags: [Cells]
+      security:
+        - bearer: []
       summary: Get all cells
       responses:
         200:
@@ -95,6 +114,8 @@ paths:
   /cell_info:
     get:
       tags: [CellInfo]
+      security:
+        - bearer: []
       summary: Get cell info
       responses:
         200:
@@ -107,6 +128,8 @@ paths:
   /trials:
     get:
       tags: [Trials]
+      security:
+        - bearer: []
       summary: Get all trials
       responses:
         200:
@@ -119,6 +142,8 @@ paths:
   /trial_info:
     get:
       tags: [TrialInfo]
+      security:
+        - bearer: []
       summary: Get trial info
       responses:
         200:
@@ -131,6 +156,8 @@ paths:
   /raw_eye_tracking:
     get:
       tags: [RawEyeTracking]
+      security:
+        - bearer: []
       summary: Get raw eye tracking
       responses:
         200:
@@ -143,6 +170,8 @@ paths:
   /functional_time_course:
     get:
       tags: [FunctionalTimeCourse]
+      security:
+        - bearer: []
       summary: Get functional time course
       responses:
         200:
@@ -155,6 +184,8 @@ paths:
   /global_cells:
     get:
       tags: [GlobalCells]
+      security:
+        - bearer: []
       summary: Get all global cells
       responses:
         200:
@@ -167,6 +198,8 @@ paths:
   /cell_collections:
     get:
       tags: [CellCollections]
+      security:
+        - bearer: []
       summary: Get all cell collections
       responses:
         200:
@@ -179,6 +212,8 @@ paths:
   /cell_collection_info:
     get:
       tags: [CellCollectionInfos]
+      security:
+        - bearer: []
       summary: Get cell collection info
       responses:
         200:
@@ -191,6 +226,8 @@ paths:
   /per_cell_metrics:
     get:
       tags: [PerCellMetrics]
+      security:
+        - bearer: []
       summary: Get all per cell metrics
       responses:
         200:
@@ -203,6 +240,8 @@ paths:
   /per_cell_metric:
     get:
       tags: [PerCellMetric]
+      security:
+        - bearer: []
       summary: Get per cell metric
       responses:
         200:
@@ -215,6 +254,8 @@ paths:
   /per_cell_metric_info:
     get:
       tags: [PerCellMetricInfos]
+      security:
+        - bearer: []
       summary: Get per cell metric info
       responses:
         200:

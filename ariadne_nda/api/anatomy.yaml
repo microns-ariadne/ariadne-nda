@@ -6,11 +6,18 @@ consumes:
   - application/json
 produces:
   - application/json
+securityDefinitions:
+  bearer:
+    type: apiKey
+    name: Authorization
+    in: header
 
 paths:
   /experiments:
     get:
       tags: [Experiments]
+      security:
+        - bearer: []
       summary: Get all experiments
       responses:
         200:
@@ -23,6 +30,8 @@ paths:
   /samples:
     get:
       tags: [Samples]
+      security:
+        - bearer: []
       summary: Get all samples
       parameters:
         - name: experiment
@@ -41,6 +50,8 @@ paths:
   /datasets:
     get:
       tags: [Datasets]
+      security:
+        - bearer: []
       summary: Get all datasets
       parameters:
         - name: experiment
@@ -64,6 +75,8 @@ paths:
   /channels:
     get:
       tags: [Channels]
+      security:
+        - bearer: []
       summary: Get channels for a dataset
       parameters:
         - name: experiment
@@ -92,6 +105,8 @@ paths:
   /channel_metadata:
     get:
       tags: [ChannelMetadatas]
+      security:
+        - bearer: []
       summary: Get channel_metadata
       parameters:
         - name: experiment
@@ -125,6 +140,8 @@ paths:
   /entity_feature:
     get:
       tags: [EntityFeatures]
+      security:
+        - bearer: []
       summary: Get all entity_features
       responses:
         200:
@@ -137,6 +154,8 @@ paths:
   /data:
     get:
       tags: [Data]
+      security:
+        - bearer: []
       summary: Get all data
       produces:
         - image/png
@@ -203,6 +222,8 @@ paths:
   /mask:
     get:
       tags: [Masks]
+      security:
+        - bearer: []
       summary: Get all masks
       responses:
         200:
