@@ -14,6 +14,7 @@ SETUP_REQ = [
 INSTALL_REQ = [
     'Flask>=0.10.1',
     'Flask-Script>=2.0.5',
+    'Flask-Cors>=3.0.2',
     'connexion>=1.1.5',
     'requests>=2.13.0',
 ]

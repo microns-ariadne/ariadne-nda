@@ -2,6 +2,7 @@ import connexion
 from connexion import resolver
 
 from flask import Flask
+from flask_cors import CORS
 
 from ariadne_nda import config
 
@@ -22,5 +23,7 @@ def create_app(config_level='default'):
         base_path='/api/v0.1/physiology',
         resolver=resolver.RestyResolver('ariadne_nda.api.physiology')
     )
+
+    CORS(capp.app)
 
     return capp.app
