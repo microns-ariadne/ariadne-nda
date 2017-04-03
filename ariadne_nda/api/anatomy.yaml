@@ -142,7 +142,68 @@ paths:
       tags: [EntityFeatures]
       security:
         - bearer: []
-      summary: Get all entity_features
+      summary: Get entity_feature
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
+        - name: sample
+          description: Specify a sample name/id
+          in: query
+          type: string
+          required: true
+        - name: dataset
+          description: Specify a dataset name/id
+          in: query
+          type: string
+          required: true
+        - name: channel
+          description: Specify a channel name/id
+          in: query
+          type: string
+          required: true
+        - name: feature
+          description: Specify a feature name
+          in: query
+          type: string
+          required: true
+        - name: id
+          description: Specify a feature id
+          in: query
+          type: integer
+          required: false
+        - name: x
+          description: Specify x value
+          in: query
+          type: integer
+          required: false
+        - name: y
+          description: Specify y value
+          in: query
+          type: integer
+          required: false
+        - name: z
+          description: Specify z value
+          in: query
+          type: integer
+          required: false
+        - name: width
+          description: Specify width
+          in: query
+          type: integer
+          required: false
+        - name: height
+          description: Specify height
+          in: query
+          type: integer
+          required: false
+        - name: depth
+          description: Specify depth
+          in: query
+          type: integer
+          required: false
       responses:
         200:
           description: Return entity features
