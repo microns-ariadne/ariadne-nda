@@ -168,6 +168,16 @@ paths:
           description: Specify a feature name
           in: query
           type: string
+          enum:
+            - is_synapse
+            - synapse_keypoint
+            - synapse_parent
+            - synapse_ids
+            - is_neuron
+            - neuron_keypoint
+            - neuron_children
+            - neuron_ids
+            - voxel_list
           required: true
         - name: id
           description: Specify a feature id
