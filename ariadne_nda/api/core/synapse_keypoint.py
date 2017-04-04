@@ -14,4 +14,5 @@ def get(collection, experiment, channel, resolution, id):
             id=id,
         )
     )
-    return dict(keypoint=list(json.loads(ret.data).values()))
+    bfly_json = json.loads(ret.data)
+    return dict(keypoint=[bfly_json['x'], bfly_json['y'], bfly_json['z']])
