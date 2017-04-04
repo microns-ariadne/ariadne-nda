@@ -37,3 +37,7 @@ def convert_bounding_box(resolution, xstart, xstop, ystart, ystop, zstart,
 
 def str2bool(val):
     return {b'true': True, b'false': False}.get(val.lower())
+
+
+def str_encode_ints(array):
+    return [str(i) for i in array]

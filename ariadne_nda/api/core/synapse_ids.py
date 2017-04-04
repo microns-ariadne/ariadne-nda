@@ -22,4 +22,4 @@ def get(collection, experiment, channel, resolution, xstart, xstop, ystart,
             depth=depth,
         )
     )
-    return dict(ids=json.loads(ret.data))
+    return dict(ids=butterfly.str_encode_ints(json.loads(ret.data)))
