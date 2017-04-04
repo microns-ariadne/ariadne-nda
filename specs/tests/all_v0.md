@@ -108,9 +108,9 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=neuron_children&i
 **Response:**
 
 ```
-[
-    14
-]
+{
+    "14": 2
+}
 ```
 
 ## Dense
