@@ -226,7 +226,9 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=voxel_list&x=0&y=
 **Response:**
 
 ```
-[
-    "Voxel List not Supported yet"
-]
+{
+  "x": [],
+  "y": [],
+  "z": []
+}
 ```
