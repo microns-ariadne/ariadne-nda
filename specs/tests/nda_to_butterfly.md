@@ -57,6 +57,7 @@ https://butterfly.rc.fas.harvard.edu/api/synapse_ids?experiment=a&sample=a&datas
 **To NDA (ICD) Response**
 ```
 {
-    "ids": [14, 17]
+    "ids": ["14", "17"]
 }
 ```
+Note- the ICD says the response integers should be `array(string-encoded uint64)`. We should ask to specifiy whether that actually means fixed length hexadecimal integers. It seems vague to me. 
