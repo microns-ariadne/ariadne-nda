@@ -1,0 +1,455 @@
+swagger: '2.0'
+info:
+  title: MICrONS NDA API
+  version: "0.1"
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+tags:
+  - name: S1
+    description: ID is a Synapse (is_synapse)
+  - name: S2
+    description: Get All Synapse Labels in Region (synapse_ids)
+  - name: S3
+    description: Get Synapse Keypoint (synapse_keypoint)
+  - name: S4
+    description: Get Synapse Parent (synapse_parent)
+  - name: S5
+    description: ID is a Neuron (is_neuron)
+  - name: S6
+    description: Get All Neuron Labels in Region (neuron_ids)
+  - name: S7
+    description: Neuron Keypoint (neuron_keypoint)
+  - name: S8
+    description: Get Neuron Children (neuron_children)
+  - name: S9
+    description: Get Voxel List (voxel_list)
+
+paths:
+  /is_synapse/{collection}/{experiment}/{channel}/{id}:
+    get:
+      tags: [S1]
+      security:
+        - bearer: []
+      description: Given a label return true if object is a synapse and false otherwise
+      parameters:
+        - $ref: '#/parameters/collection'
+        - $ref: '#/parameters/experiment'
+        - $ref: '#/parameters/channel'
+        - $ref: '#/parameters/id'
+      responses:
+        200:
+          description: "S1 response"
+          schema:
+            $ref: '#/definitions/S1_Response'
+
+  /synapse_ids/{collection}/{experiment}/{channel}/{resolution}/{xstart},{xstop}/{ystart},{ystop}/{zstart},{zstop}:
+    get:
+      tags: [S2]
+      security:
+        - bearer: []
+      description: |
+        Given a region of interest specified by a bounding box, return all label IDs
+        for each synapse with at least one labeled voxel inside this bounding box.
+
+        If synapses are stored as dense voxel labels, this would include any synapse
+        where a single voxel is within the bounding box.  If synapses are stored as a
+        single keypoint, this would only include synapses where the keypoint is within
+        the bounding box.
+      parameters:
+        - $ref: '#/parameters/collection'
+        - $ref: '#/parameters/experiment'
+        - $ref: '#/parameters/channel'
+        - $ref: '#/parameters/resolution'
+        - $ref: '#/parameters/xstart'
+        - $ref: '#/parameters/xstop'
+        - $ref: '#/parameters/ystart'
+        - $ref: '#/parameters/ystop'
+        - $ref: '#/parameters/zstart'
+        - $ref: '#/parameters/zstop'
+      responses:
+        200:
+          description: "S2 response"
+          schema:
+            $ref: '#/definitions/S2_Response'
+
+  /synapse_keypoint/{collection}/{experiment}/{channel}/{resolution}/{id}:
+    get:
+      tags: [S3]
+      security:
+        - bearer: []
+      description: |
+        Given a synapse label, return coordinates for its performer defined
+        synapse_keypoint (e.g. centroid).
+      parameters:
+        - $ref: '#/parameters/collection'
+        - $ref: '#/parameters/experiment'
+        - $ref: '#/parameters/channel'
+        - $ref: '#/parameters/resolution'
+        - $ref: '#/parameters/id'
+      responses:
+        200:
+          description: "S3 response"
+          schema:
+            $ref: '#/definitions/Keypoint'
+
+  /synapse_parent/{collection}/{experiment}/{channel}/{id}:
+    get:
+      tags: [S4]
+      security:
+        - bearer: []
+      description: |
+        Given a synapse label, return neuron labels associated with that
+        synapse and their relative polarity (i.e. pre, post, bidirectional,
+        unknown)
+
+        The polarity value is encoded as an enumeration {0:unknown, 1:pre,
+        2:post, 3:bidirectional}
+      parameters:
+        - $ref: '#/parameters/collection'
+        - $ref: '#/parameters/experiment'
+        - $ref: '#/parameters/channel'
+        - $ref: '#/parameters/id'
+      responses:
+        200:
+          description: "S4 response"
+          schema:
+            $ref: '#/definitions/S4_Response'
+
+  /is_neuron/{collection}/{experiment}/{channel}/{id}:
+    get:
+      tags: [S5]
+      security:
+        - bearer: []
+      description: |
+        Given an label return true if object is a neuron and false otherwise
+      parameters:
+        - $ref: '#/parameters/collection'
+        - $ref: '#/parameters/experiment'
+        - $ref: '#/parameters/channel'
+        - $ref: '#/parameters/id'
+      responses:
+        200:
+          description: "S5 response"
+          schema:
+            $ref: '#/definitions/S5_Response'
+
+  /neuron_ids/{collection}/{experiment}/{channel}/{resolution}/{xstart},{xstop}/{ystart},{ystop}/{zstart},{zstop}:
+    get:
+      tags: [S6]
+      security:
+        - bearer: []
+      description: |
+        Given a region of interest specified as a bounding box, return all
+        labels for each neuron with at least one labeled voxel inside this
+        bounding box.
+
+        If neurons are labeled using a grouping of multiple entity IDs (e.g.
+        supervoxels), this list should be reconciled to a single label value.
+
+        If neurons are internally represented as skeletons, the neuron label
+        should be included if one or more nodes of the skeleton are inside the
+        bounding box.
+      parameters:
+        - $ref: '#/parameters/collection'
+        - $ref: '#/parameters/experiment'
+        - $ref: '#/parameters/channel'
+        - $ref: '#/parameters/resolution'
+        - $ref: '#/parameters/xstart'
+        - $ref: '#/parameters/xstop'
+        - $ref: '#/parameters/ystart'
+        - $ref: '#/parameters/ystop'
+        - $ref: '#/parameters/zstart'
+        - $ref: '#/parameters/zstop'
+      responses:
+        200:
+          description: "S6 response"
+          schema:
+            $ref: '#/definitions/S6_Response'
+
+  /neuron_keypoint/{collection}/{experiment}/{channel}/{resolution}/{id}:
+    get:
+      tags: [S7]
+      security:
+        - bearer: []
+      description: |
+        Given a neuron label, return keypoint coordinates (e.g. soma center of
+        mass). The definition of a neuron keypoint across modalities (i.e.
+        neuroanatomical data and neurophysiological data) is up to each
+        performer, but should be such that the keypoint for each neuron in each
+        imaging modality is representing the same spatial location and could be
+        used to evaluate co-registration.
+      parameters:
+        - $ref: '#/parameters/collection'
+        - $ref: '#/parameters/experiment'
+        - $ref: '#/parameters/channel'
+        - $ref: '#/parameters/resolution'
+        - $ref: '#/parameters/id'
+      responses:
+        200:
+          description: "S7 response"
+          schema:
+            $ref: '#/definitions/Keypoint'
+
+  /neuron_children/{collection}/{experiment}/{channel}/{resolution}/{xstart},{xstop}/{ystart},{ystop}/{zstart},{zstop}/{id}:
+    get:
+      tags: [S8]
+      security:
+        - bearer: []
+      description: |
+        Given a neuron label, return synapse labels associated with that neuron
+        and their polarity (pre, post, bidirectional, unknown), limited to a
+        bounding box.
+
+        The polarity value is encoded as an enumeration {0:unknown, 1:pre,
+        2:post, 3:bidirectional}
+      parameters:
+        - $ref: '#/parameters/collection'
+        - $ref: '#/parameters/experiment'
+        - $ref: '#/parameters/channel'
+        - $ref: '#/parameters/resolution'
+        - $ref: '#/parameters/xstart'
+        - $ref: '#/parameters/xstop'
+        - $ref: '#/parameters/ystart'
+        - $ref: '#/parameters/ystop'
+        - $ref: '#/parameters/zstart'
+        - $ref: '#/parameters/zstop'
+        - $ref: '#/parameters/id'
+      responses:
+        200:
+          description: "S8 response"
+          schema:
+            $ref: '#/definitions/S8_Response'
+
+  /voxel_list/{collection}/{experiment}/{channel}/{resolution}/{xstart},{xstop}/{ystart},{ystop}/{zstart},{zstop}/{id}:
+    get:
+      tags: [S9]
+      security:
+        - bearer: []
+      description: |
+        Given a label and bounding box, return a voxel list (x,y,z position of
+        each labeled voxel) for an entity of interest, restricted spatially by
+        the specified bounding box. Voxel lists should be in global
+        coordinates.
+      parameters:
+        - $ref: '#/parameters/collection'
+        - $ref: '#/parameters/experiment'
+        - $ref: '#/parameters/channel'
+        - $ref: '#/parameters/resolution'
+        - $ref: '#/parameters/xstart'
+        - $ref: '#/parameters/xstop'
+        - $ref: '#/parameters/ystart'
+        - $ref: '#/parameters/ystop'
+        - $ref: '#/parameters/zstart'
+        - $ref: '#/parameters/zstop'
+        - $ref: '#/parameters/id'
+      responses:
+        200:
+          description: "S9 response"
+          schema:
+            $ref: '#/definitions/S9_Response'
+
+
+parameters:
+  collection:
+    name: collection
+    in: path
+    description: collection in the BOSS
+    required: true
+    type: string
+  experiment:
+    name: experiment
+    in: path
+    description: experiment in the BOSS collection
+    required: true
+    type: string
+  channel:
+    name: channel
+    in: path
+    description: channel in the BOSS experiment
+    required: true
+    type: string
+  id:
+    name: id
+    in: path
+    description: label for the object of interest
+    required: true
+    type: integer
+  xstart:
+    name: xstart
+    in: path
+    description: upper left corner of bounding box in x dimension
+    required: true
+    type: integer
+  xstop:
+    name: xstop
+    in: path
+    description: lower right corner of bounding box in x dimension
+    required: true
+    type: integer
+  ystart:
+    name: ystart
+    in: path
+    description: upper left corner of bounding box in y dimension
+    required: true
+    type: integer
+  ystop:
+    name: ystop
+    in: path
+    description: lower right corner of bounding box in y dimension
+    required: true
+    type: integer
+  zstart:
+    name: zstart
+    in: path
+    description: upper left corner of bounding box in z dimension
+    required: true
+    type: integer
+  zstop:
+    name: zstop
+    in: path
+    description: lower right corner of bounding box in z dimension
+    required: true
+    type: integer
+  resolution:
+    name: resolution
+    in: path
+    description: level of annotation hierarchy to use for data access
+    required: true
+    type: integer
+
+definitions:
+  S1_Response:
+    properties:
+      result:
+        type: boolean
+        description: >
+          A boolean indicating if the label is a synapse or not
+  S2_Response:
+    properties:
+      ids:
+        type: array
+        description: >
+          A list containing label ids (string-encoded uint64) in the region of
+          interest
+        items:
+          type: string
+        example:
+          - "0"
+          - "1"
+          - "2"
+          - "3"
+  Keypoint:
+    properties:
+      keypoint:
+        type: array
+        description: >
+          A 1x3 array containing the coordinates of the keypoint of interest
+          where the first value is x, second is y, and the last is z, in global
+          coordinates.
+        items:
+          type: integer
+        example:
+          - 0
+          - 1
+          - 2
+  S4_Response:
+    properties:
+      parent_neurons:
+        type: object
+        description: >
+          A JSON object with a name/value pair (member) for each parent neuron
+          of the indicated synapse. The name of each member is the label ID of
+          the parent neuron encoded as a string. The value of each member is
+          the polarity of the parent neuron encoded as an integer based on the
+          specified enumeration. Parent neuron labels should be unique.
+        additionalProperties:
+          type:
+            integer
+        example:
+          "23465": 1
+          "7523": 2
+  S5_Response:
+    properties:
+      result:
+        type: boolean
+        description: >
+          A boolean indicating if the label is a neuron or not
+  S6_Response:
+    properties:
+      ids:
+        type: array
+        description: >
+          A list containing label ids (string-encoded uint64) for each neuron
+          in the region of interest
+        items:
+          type: string
+        example:
+          - "0"
+          - "1"
+          - "2"
+          - "3"
+  S8_Response:
+    properties:
+      child_synapses:
+        type: object
+        description: >
+          A JSON object with a name/value pair (member) for each child synapse
+          of the specified neuron. The name of each member is the label of the
+          synapse encoded as a string. The value of each member is the polarity
+          of the synapse encoded as an integer based on the specified
+          enumeration. Synapse labels should be unique. All polarity values
+          should be from the perspective of the specified neuron.
+        additionalProperties:
+          type:
+            integer
+        example:
+          "234": 1
+          "4562": 2
+          "234": 1
+          "4562": 1
+          "865": 1
+          "674": 2
+          "88553": 2
+          "68372": 1
+  S9_Response:
+    properties:
+      x:
+        type: array
+        description: >
+          An array containing the x coordinate of each voxel, in global
+          coordinates.
+        items:
+          type: integer
+        example:
+          - 1
+          - 0
+          - 1
+      y:
+        type: array
+        description: >
+          An array containing the y coordinate of each voxel, in global
+          coordinates.
+        items:
+          type: integer
+        example:
+          - 0
+          - 1
+          - 0
+      z:
+        type: array
+        description: >
+          An array containing the z coordinate of each voxel, in global
+          coordinates.
+        items:
+          type: integer
+        example:
+          - 1
+          - 1
+          - 0
