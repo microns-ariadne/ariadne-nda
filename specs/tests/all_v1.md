@@ -18,7 +18,9 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=is_synapse&id=14&
 **Response:**
 
 ```
-true
+{
+  "result": true
+}
 ```
 
 ### S3: synapse_keypoint
@@ -39,9 +41,11 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=synapse_keypoint&
 
 ```
 {
-    "y": 118, 
-    "x": 351, 
-    "z": 57
+  "keypoint": [
+    351,
+    118,
+    57
+  ]
 }
 ```
 
@@ -63,9 +67,10 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=synapse_parent&id
 
 ```
 {
-    "synapse_parent_pre": 18, 
-    "synapse_id": 14, 
-    "synapse_parent_post": 5445
+  "parent_neurons": {
+    "5445": 2,
+    "18": 1
+  }
 }
 ```
 
@@ -89,7 +94,9 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=is_neuron&id=18&e
 **Response:**
 
 ```
-true
+{
+  "result": true
+}
 ```
 
 ### S7: neuron_keypoint
@@ -111,9 +118,11 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=neuron_keypoint&i
 
 ```
 {
-    "y": 118, 
-    "x": 351, 
-    "z": 57
+  "keypoint": [
+    351,
+    118,
+    57
+  ]
 }
 ```
 
@@ -136,7 +145,9 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=neuron_children&i
 
 ```
 {
+  "child_synapses": {
     "14": 2
+  }
 }
 ```
 
@@ -160,10 +171,12 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=synapse_ids&x=0&y
 **Response:**
 
 ```
-[
-    14, 
-    17
-]
+{
+  "ids": [
+    "14",
+    "17"
+  ]
+}
 ```
 
 ### S6: neuron_ids
@@ -185,11 +198,13 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=neuron_ids&x=0&y=
 **Response:**
 
 ```
-[
-    18, 
-    6487, 
-    5445
-]
+{
+  "ids": [
+    "18",
+    "6487",
+    "5445"
+  ]
+}
 ```
 
 ### S9: voxel_list
@@ -215,4 +230,3 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=voxel_list&x=0&y=
     "Voxel List not Supported yet"
 ]
 ```
-&experiment=integration_testing&sample=integration_testing&dataset=2017_03_31&channel=raw
