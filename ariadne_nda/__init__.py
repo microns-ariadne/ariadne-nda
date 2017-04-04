@@ -1,8 +1,6 @@
 import connexion
 from connexion import resolver
 
-from flask import Flask
-
 from ariadne_nda import config
 
 

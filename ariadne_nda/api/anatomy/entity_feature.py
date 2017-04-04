@@ -1,8 +1,8 @@
 from ariadne_nda import butterfly
 
 
-def search(experiment, sample, dataset, channel, feature, id=None, x=None, y=None,
-           z=None, width=None, height=None, depth=None):
+def search(experiment, sample, dataset, channel, feature, id=None, x=None,
+           y=None, z=None, width=None, height=None, depth=None):
     return butterfly.proxy(
         '/api/entity_feature',
         params=dict(

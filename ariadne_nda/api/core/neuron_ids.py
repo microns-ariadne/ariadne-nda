@@ -16,8 +16,8 @@ def get(collection, experiment, channel, resolution, xstart, xstop, ystart,
     depth = zstop - zstart
 
     # Integer division of differences for <width> and <height>
-    bfly_height = ( ystop - ystart ) // scale
-    bfly_width = ( xstop - xstart ) // scale
+    bfly_height = (ystop - ystart) // scale
+    bfly_width = (xstop - xstart) // scale
 
     ret = butterfly.proxy(
         '/api/entity_feature',

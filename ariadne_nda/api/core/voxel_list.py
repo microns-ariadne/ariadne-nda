@@ -1,7 +1,3 @@
-import json
-from ariadne_nda import butterfly
-
-
 def get(collection, experiment, channel, resolution, xstart, xstop, ystart,
         ystop, zstart, zstop, id):
 
