@@ -4,21 +4,8 @@ from ariadne_nda import butterfly
 
 def get(collection, experiment, channel, resolution, xstart, xstop, ystart,
         ystop, zstart, zstop, id):
-
-    # Scale all by the resolution
-    scale = 2 ** resolution
-
-    # Integer division for <x> and <y> origin
-    bfly_y = ystart // scale
-    bfly_x = xstart // scale
-    bfly_z = zstart
-
-    depth = zstop - zstart
-
-    # Integer division of differences for <width> and <height>
-    bfly_height = (ystop - ystart) // scale
-    bfly_width = (xstop - xstart) // scale
-
+    x, y, z, width, height, depth = butterfly.convert_bounding_box(
+        resolution, xstart, xstop, ystart, ystop, zstart, zstop)
     ret = butterfly.proxy(
         '/api/entity_feature',
         params=dict(
@@ -28,11 +15,11 @@ def get(collection, experiment, channel, resolution, xstart, xstop, ystart,
             channel=channel,
             feature='neuron_children',
             id=id,
-            x=bfly_x,
-            y=bfly_y,
-            z=bfly_z,
-            width=bfly_width,
-            height=bfly_height,
+            x=x,
+            y=y,
+            z=z,
+            width=width,
+            height=height,
             depth=depth,
         )
     )
