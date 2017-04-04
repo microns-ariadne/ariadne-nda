@@ -54,7 +54,7 @@ https://butterfly.rc.fas.harvard.edu/api/synapse_ids?experiment=a&sample=a&datas
 ]
 ```
 
-**To NDA (ICD Response**
+**To NDA (ICD) Response**
 ```
 {
     "ids": [14, 17]
