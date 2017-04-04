@@ -11,6 +11,12 @@ securityDefinitions:
     type: apiKey
     name: Authorization
     in: header
+    description: |
+      All ariadne-nda API endpoints require a valid JWT access token from the
+      BOSS to be passed in via the 'Authorization' header. You can use the
+      following script to obtain a JWT access token from the BOSS:
+
+      https://gist.github.com/jtriley/571dfbc94c5d73e11a5752852251f448
 
 paths:
   /animals:
