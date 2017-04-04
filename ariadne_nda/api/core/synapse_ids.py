@@ -1,7 +1,8 @@
+import json
 from ariadne_nda import butterfly
 
 
-def get(collection, experiment, channel, id, resolution, xstart, xstop, ystart,
+def get(collection, experiment, channel, resolution, xstart, xstop, ystart,
         ystop, zstart, zstop):
 
     # Scale all by the resolution
@@ -10,7 +11,9 @@ def get(collection, experiment, channel, id, resolution, xstart, xstop, ystart,
     # Integer division for <x> and <y> origin
     bfly_y = ystart // scale
     bfly_x = xstart // scale
-    bfly_z = zstart // scale
+    bfly_z = zstart
+
+    depth = zstop - zstart
 
     # Integer division of differences for <width> and <height>
     bfly_height = ( ystop - ystart ) // scale
@@ -24,13 +27,12 @@ def get(collection, experiment, channel, id, resolution, xstart, xstop, ystart,
             dataset=experiment,
             channel=channel,
             feature='synapse_ids',
-            id=id,
             x=bfly_x,
             y=bfly_y,
             z=bfly_z,
             width=bfly_width,
             height=bfly_height,
-            depth=100,
+            depth=depth,
         )
     )
-    return dict(ids=ret.data)
+    return dict(ids=json.loads(ret.data))
