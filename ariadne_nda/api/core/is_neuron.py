@@ -13,4 +13,4 @@ def get(collection, experiment, channel, id):
             id=id,
         )
     )
-    return dict(result=ret.data)
+    return dict(result=butterfly.str2bool(ret.data))

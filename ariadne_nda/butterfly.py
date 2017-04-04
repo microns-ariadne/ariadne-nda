@@ -33,3 +33,7 @@ def convert_bounding_box(resolution, xstart, xstop, ystart, ystop, zstart,
     width = (xstop - xstart) // scale
 
     return x, y, z, width, height, depth
+
+
+def str2bool(val):
+    return {b'true': True, b'false': False}.get(val.lower())
