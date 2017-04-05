@@ -1,4 +1,3 @@
-import json
 from ariadne_nda import butterfly
 
 
@@ -8,6 +7,7 @@ def get(collection, experiment, channel, resolution, xstart, xstop, ystart,
         resolution, xstart, xstop, ystart, ystop, zstart, zstop)
     ret = butterfly.proxy(
         '/api/entity_feature',
+        json=True,
         params=dict(
             experiment=collection,
             sample=collection,
@@ -22,4 +22,4 @@ def get(collection, experiment, channel, resolution, xstart, xstop, ystart,
             depth=depth,
         )
     )
-    return dict(ids=butterfly.str_encode_ints(json.loads(ret.data)))
+    return dict(ids=butterfly.str_encode_ints(ret))

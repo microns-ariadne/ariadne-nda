@@ -1,10 +1,10 @@
-import json
 from ariadne_nda import butterfly
 
 
 def get(collection, experiment, channel, id):
     ret = butterfly.proxy(
         '/api/entity_feature',
+        json=True,
         params=dict(
             experiment=collection,
             sample=collection,
@@ -14,11 +14,10 @@ def get(collection, experiment, channel, id):
             id=id,
         )
     )
-    bfly_json = json.loads(ret.data)
     parents = {}
-    for parent in bfly_json:
+    for parent in ret:
         if parent.endswith('_pre'):
-            parents[bfly_json[parent]] = 1
+            parents[ret[parent]] = 1
         if parent.endswith('_post'):
-            parents[bfly_json[parent]] = 2
+            parents[ret[parent]] = 2
     return dict(parent_neurons=parents)

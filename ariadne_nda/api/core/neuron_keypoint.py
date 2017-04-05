@@ -1,10 +1,10 @@
-import json
 from ariadne_nda import butterfly
 
 
 def get(collection, experiment, channel, resolution, id):
     ret = butterfly.proxy(
         '/api/entity_feature',
+        json=True,
         params=dict(
             experiment=collection,
             sample=collection,
@@ -14,5 +14,4 @@ def get(collection, experiment, channel, resolution, id):
             id=id,
         )
     )
-    bfly_json = json.loads(ret.data)
-    return dict(keypoint=[bfly_json['x'], bfly_json['y'], bfly_json['z']])
+    return dict(keypoint=[ret['x'], ret['y'], ret['z']])

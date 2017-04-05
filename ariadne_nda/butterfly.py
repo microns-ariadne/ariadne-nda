@@ -8,12 +8,15 @@ from ariadne_nda import config
 BUTTERFLY_URL = config.get('BUTTERFLY_URL')
 
 
-def proxy(url, params=None):
+def proxy(url, params=None, json=False):
     url = urllib.parse.urljoin(BUTTERFLY_URL, url)
     r = requests.get(url, params=params)
-    if r.headers.get('Content-Type') == 'image/tif':
-        r.headers['Content-Type'] = 'image/tiff'
-    return flask.Response(r.content, r.status_code, r.headers.items())
+    if json:
+        return r.json()
+    else:
+        if r.headers.get('Content-Type') == 'image/tif':
+            r.headers['Content-Type'] = 'image/tiff'
+        return flask.Response(r.content, r.status_code, r.headers.items())
 
 
 def convert_bounding_box(resolution, xstart, xstop, ystart, ystop, zstart,
