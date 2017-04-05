@@ -161,7 +161,7 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=neuron_children&i
 - width,height,depth = 512,512,100
 
 ```
-https://ariadne-nda.rc.fas.harvard.edu/api/v0.1/synapse_ids/integration_testing/2017_03_31/raw/0/0,512/0,521/0,100/
+https://ariadne-nda.rc.fas.harvard.edu/api/v0.1/synapse_ids/integration_testing/2017_03_31/raw/0/0,512/0,512/0,100/
 ```
 
 ```
@@ -188,7 +188,7 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=synapse_ids&x=0&y
 
 
 ```
-https://ariadne-nda.rc.fas.harvard.edu/api/v0.1/neuron_ids/integration_testing/2017_03_31/raw/0/0,512/0,521/0,100/
+https://ariadne-nda.rc.fas.harvard.edu/api/v0.1/neuron_ids/integration_testing/2017_03_31/raw/0/0,512/0,512/0,100/
 ```
 
 ```
@@ -232,7 +232,7 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=neuron_ids&x=0&y=
 - width,height,depth = 512,512,100
 
 ```
-https://ariadne-nda.rc.fas.harvard.edu/api/v0.1/synapse_parent/integration_testing/2017_03_31/raw/0/0,512/0,521/0,100/
+https://ariadne-nda.rc.fas.harvard.edu/api/v0.1/synapse_parent/integration_testing/2017_03_31/raw/0/0,512/0,512/0,100/
 ```
 
 ```
