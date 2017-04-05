@@ -150,9 +150,25 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=neuron_ids&experi
 
 ```
 [
+    2814, 
+    4322, 
+    6915, 
+    9542, 
+    5445, 
+    4134, 
+    389, 
+    9224, 
+    265, 
+    7758, 
+    7855, 
     18, 
+    227, 
+    8526, 
+    14, 
     6487, 
-    5445
+    85, 
+    7998, 
+    229
 ]
 ```
 
