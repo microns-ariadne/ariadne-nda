@@ -1,64 +1,50 @@
-Request for Evaluation - MICrONS Phase 1
-*March 2017 Pretest - should be conducted by Friday 3/31/2017*
+Request for Evaluation - MICrONS Phase 1  
+Performer Information (required to test):  
+  
+Location of NDA services (URL)  
+aridne-nda.rc.fas.harvard.edu  
 
-Description:  This test is primarily designed as an informal proof-of-life test for the NDA.  However, depending on the maturity of the data available for each team, additional testing will be conducted.  It is not a formal deliverable.
+Boss collection/experiment/channel for the raw structural image data    
+integration_testing/2017_04_06/raw  
 
-We envision that this document will evolve over the next few weeks and form the basis for the official circuit reconstruction submission.  Once the Phase data are delivered, the respective channels will be made "read only" to ensure data integrity for evaluation.
+Boss collection/experiment/channel for the raw functional image data  
+integration_testing/2017_04_06/function_raw  
 
-Note that we will test each of the services you've specified in your SSD.  After discussion with teams and internally, we DO require S2 and S6 to avoid underlying ambiguity.  S9 in now optional.
+Boss collection/experiment/channel for structural neuron information (automated)  
+a) integration_testing/2017_04_06/neuron_seg  
 
+b) Can IARPA assume that all labels in this channel are neurons for evaluation purposes?  
+only the neuron labels returned by S4 can be assumed to be neuron labels, although other labels might be neurons 
 
-Questions:  Will Gray-Roncal (william.gray.roncal@jhuapl.edu)
+Boss collection/experiment/channel for structural synapse information (automated)  
+a) integration_testing/2017_04_06/synapse_seg  
 
-Performer Information (required to test):
+b) Can IARPA assume that all labels in this channel are synapses for evaluation purposes?  
+yes, all but id==0  
 
-1.  Location of NDA services (URL)
-	- aridne-nda.rc.fas.harvard.edu
+Boss collection/experiment/channel for the functional neuron information containing neuron cell body segmentation or ROIs.    
+integration_testing/2017_04_06/function_neuron  
 
-2.  Boss collection/experiment/channel for the raw structural image data
-	- integration-testing/2017-03-31/raw
-		- /n/coxfs01/leek/results/ECS_aff_test_images/image.h5
+Location (x,y,z,resolution) of automated reconstruction bounding box (if not dense, please specify)  
+Dense: full volume (1456, 1456, 143, 0)  
 
-3.  Boss collection/experiment/channel for the raw functional image data
-	- integration-testing/2017-03-31/function_raw
-		- /n/coxfs01/integration-testing/2017-03-31/jeff_raw.h5
+Boss collection/experiment/channel for structural neuron information (ground truth)  
+a) integration_testing/2017_04_06/neuron_gt  
 
-4.  Boss collection/experiment/channel for structural neuron information (automated)
-	- a) integration-testing/2017-03-31/neuron_seg
-		- /n/coxfs01/leek/results/ECS_aff_test_images/neuroproof.h5
-	- b) Can IARPA assume that all labels in this channel are neurons for evaluation purposes?
-		- all with overlapping synapses in integration-testing/2017-03-31/synapse_seg
+b) Can IARPA assume that all labels in this channel are neurons for evaluation purposes?  
+yes, all but id==0  
 
-5.  Boss collection/experiment/channel for structural synapse information (automated)
-	- a) integration-testing/2017-03-31/synapse_seg
-		- /n/coxfs01/leek/results/ECS_aff_test_images/synapse-segmentation.h5 
-	- b) Can IARPA assume that all labels in this channel are synapses for evaluation purposes?
-		- yes, all but id==0
+Boss collection/experiment/channel for structural synapse information (ground truth)  
+a) integration_testing/2017_04_06/synapse_gt  
 
-6.  Boss collection/experiment/channel for the functional neuron information containing neuron cell body segmentation or ROIs.
-	- integration-testing/2017-03-31/function_neuron
-		- /n/coxfs01/integration-testing/2017-03-31/jeff_seg.h5
+b) Can IARPA assume that all labels in this channel are synapses for evaluation purposes?  
+yes, all but id==0  
 
-7.  Location (x,y,z,resolution) of automated reconstruction bounding box (if not dense, please specify)
-	- Dense: full volume
+Location (x,y,z,resolution) of ground truth bounding box (if not dense, please specify)  
+Dense: full volume (1456, 1456, 143, 0)  
 
-8.  Boss collection/experiment/channel for structural neuron information (ground truth)
-	- a) integration-testing/2017-03-31/neuron_gt
-		- /n/coxfs01/leek/results/ECS_aff_test_images/gt.h5
-	- b) Can IARPA assume that all labels in this channel are neurons for evaluation purposes?
-		- yes, all but id==0
+Date(s) of preferred NDA testing.  
+any date after 2017_04_09  
 
-9.  Boss collection/experiment/channel for structural synapse information (ground truth)
-	- a) integration-testing/2017-03-31/synapse_gt
-		- /n/coxfs01/leek/results/ECS_aff_test_images/synapse-gt.h5
-	- b) Can IARPA assume that all labels in this channel are synapses for evaluation purposes?
-		- yes, all but id==0
-
-10.  Location (x,y,z,resolution) of ground truth bounding box (if not dense, please specify)
-	- Dense: full volume
-
-11.  Date(s) of preferred NDA testing.
-	- any date after 2017-04-01
-
-12.  Request submitted by (Name, email) - for final phase deliverable this should be performer team lead; for this testing can be any team member
-	- The submitter of this document
+Request submitted by (Name, email) - for final phase deliverable this should be performer team lead; for this testing can be any team member  
+`_________________` `____________________`
