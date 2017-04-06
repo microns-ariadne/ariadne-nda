@@ -26,7 +26,7 @@ Boss collection/experiment/channel for the functional neuron information contain
 integration_testing/2017_04_06/function_neuron  
 
 Location (x,y,z,resolution) of automated reconstruction bounding box (if not dense, please specify)  
-Dense: full volume (1456, 1456, 143, 0)  
+Dense: full volume (20:1456, 20:1456, 1:143, 0)  
 
 Boss collection/experiment/channel for structural neuron information (ground truth)  
 a) integration_testing/2017_04_06/neuron_gt  
@@ -41,7 +41,7 @@ b) Can IARPA assume that all labels in this channel are synapses for evaluation 
 yes, all but id==0  
 
 Location (x,y,z,resolution) of ground truth bounding box (if not dense, please specify)  
-Dense: full volume (1456, 1456, 143, 0)  
+Dense: full volume (20:1456, 20:1456, 1:143, 0)  
 
 Date(s) of preferred NDA testing.  
 any date after 2017_04_09  
