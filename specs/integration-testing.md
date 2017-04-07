@@ -52,7 +52,7 @@ b) Can IARPA assume that all labels in this channel are synapses for evaluation 
 yes, all but id==0  
 
 Location (x,y,z,resolution) of ground truth bounding box (if not dense, please specify)  
-Dense: full volume (20:1456, 20:1456, 1:143, 0)  
+Dense: full volume (0:1456, 0:1456, 0:143, 0)
 
 Date(s) of preferred NDA testing.  
 any date after 2017_04_09  
