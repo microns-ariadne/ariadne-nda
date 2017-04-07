@@ -1,8 +1,19 @@
 Request for Evaluation - MICrONS Phase 1  
 Performer Information (required to test):  
   
-Location of NDA services (URL)  
-aridne-nda.rc.fas.harvard.edu  
+Location of NDA services (URL)
+
+Instructions:
+
+https://ariadne-nda.rc.fas.harvard.edu
+
+NDA API:
+
+https://ariadne-nda.rc.fas.harvard.edu/api/v0.1
+
+NDA API Browser:
+
+https://ariadne-nda.rc.fas.harvard.edu/api/v0.1/ui
 
 Boss collection/experiment/channel for the raw structural image data    
 integration_testing/2017_04_06/raw  
