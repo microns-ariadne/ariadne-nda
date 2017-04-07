@@ -26,7 +26,7 @@ Boss collection/experiment/channel for the functional neuron information contain
 integration_testing/2017_04_06/function_neuron  
 
 Location (x,y,z,resolution) of automated reconstruction bounding box (if not dense, please specify)  
-Dense: full volume (20:1456, 20:1456, 1:143, 0)  
+Dense: full volume (0:1456, 0:1456, 0:143, 0)
 
 Boss collection/experiment/channel for structural neuron information (ground truth)  
 a) integration_testing/2017_04_06/neuron_gt  
