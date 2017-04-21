@@ -174,7 +174,7 @@ http://butterfly.rc.fas.harvard.edu/api/entity_feature?feature=synapse_ids&x=0&y
 {
   "ids": [
     "14",
-    "17"
+    "18"
   ]
 }
 ```
