@@ -2,7 +2,7 @@ import os
 
 
 class BaseConfig(object):
-    pass
+    THEBOSS_URL = 'https://api.theboss.io'
 
 
 class Development(BaseConfig):
