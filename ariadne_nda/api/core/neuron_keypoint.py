@@ -14,4 +14,7 @@ def get(collection, experiment, channel, resolution, id):
             id=id,
         )
     )
-    return dict(keypoint=[ret['x'], ret['y'], ret['z']])
+
+    keypoint = [ret['x'], ret['y'], ret['z']] if ret else []
+
+    return dict(keypoint=keypoint)
