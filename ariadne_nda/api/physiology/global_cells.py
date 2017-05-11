@@ -1,2 +1,2 @@
-def search():
-    return {'message': 'global_cells'}, 200
+def get(animal_id):
+    return {'message': 'not implemented'}, 200

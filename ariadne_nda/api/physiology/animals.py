@@ -1,2 +1,2 @@
 def search():
-    return {'message': 'animals'}, 200
+    return {'message': 'not implemented'}, 200

@@ -1,2 +1,2 @@
 def search():
-    return {'message': 'cell_collections'}, 200
+    return {'message': 'not implemented'}, 200

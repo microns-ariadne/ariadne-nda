@@ -1,2 +1,2 @@
-def search():
-    return {'message': 'raw_eye_tracking'}, 200
+def get(trial_id):
+    return {'message': 'not implemented'}, 200

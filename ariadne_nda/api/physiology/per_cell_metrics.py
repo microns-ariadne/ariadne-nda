@@ -1,2 +1,2 @@
-def search():
-    return {'message': 'per_cell_metrics'}, 200
+def get(cell_id):
+    return {'message': 'not implemented'}, 200

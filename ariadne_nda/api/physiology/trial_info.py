@@ -1,2 +1,2 @@
-def search():
-    return {'message': 'trial_info'}, 200
+def get(trial_id):
+    return {'message': 'not implemented'}, 200

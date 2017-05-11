@@ -1,2 +1,2 @@
-def search():
-    return {'message': 'cell_collection_info'}, 200
+def get(cell_collection_id):
+    return {'message': 'not implemented'}, 200

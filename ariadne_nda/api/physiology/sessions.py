@@ -1,2 +1,2 @@
-def search():
-    return {'message': 'sessions'}, 200
+def get(animal_id):
+    return {'message': 'not implemented'}, 200

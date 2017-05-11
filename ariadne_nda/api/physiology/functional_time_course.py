@@ -1,2 +1,2 @@
-def search():
-    return {'message': 'functional_time_course'}, 200
+def get(run_id, cell_id, channel_id=None, trial_id=None):
+    return {'message': 'not implemented'}, 200
