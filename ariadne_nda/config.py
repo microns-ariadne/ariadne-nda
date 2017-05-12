@@ -1,7 +1,8 @@
+import os
 
 
 class BaseConfig(object):
-    pass
+    THEBOSS_URL = 'https://api.theboss.io'
 
 
 class Development(BaseConfig):
@@ -10,6 +11,9 @@ class Development(BaseConfig):
 
 config = {
     'development': Development,
-
     'default': Development
 }
+
+
+def get(key, level='default'):
+    return os.environ.get(key, getattr(config[level], key, None))

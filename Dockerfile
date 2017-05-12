@@ -18,15 +18,14 @@ WORKDIR /usr/src/app
 COPY requirements.txt /usr/src/app/
 COPY deploy/requirements.txt /usr/src/app/deploy/
 
-RUN pip3 --no-cache-dir install -r /usr/src/app/requirements.txt
 RUN pip3 --no-cache-dir install -r /usr/src/app/deploy/requirements.txt
+RUN pip3 --no-cache-dir install -r /usr/src/app/requirements.txt
 
 COPY . /usr/src/app
 RUN pip3 --no-cache-dir install -e /usr/src/app/
 
 RUN apt-get remove -y \
       build-essential \
-      python3-dev \
       libpcre3-dev \
   && apt-get autoremove -y \
   && apt-get clean \
@@ -38,6 +37,6 @@ RUN groupadd uwsgi
 RUN useradd -r -g uwsgi uwsgi
 USER uwsgi
 
-EXPOSE 80
+EXPOSE 8000
 
 CMD ["/usr/local/bin/start-ariadne-nda.sh"]

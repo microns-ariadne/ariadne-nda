@@ -6,11 +6,24 @@ consumes:
   - application/json
 produces:
   - application/json
+securityDefinitions:
+  bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: |
+      All ariadne-nda API endpoints require a valid JWT access token from the
+      BOSS to be passed in via the 'Authorization' header. You can use the
+      following script to obtain a JWT access token from the BOSS:
+
+      https://gist.github.com/jtriley/571dfbc94c5d73e11a5752852251f448
 
 paths:
   /experiments:
     get:
       tags: [Experiments]
+      security:
+        - bearer: []
       summary: Get all experiments
       responses:
         200:
@@ -23,7 +36,15 @@ paths:
   /samples:
     get:
       tags: [Samples]
+      security:
+        - bearer: []
       summary: Get all samples
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
       responses:
         200:
           description: Return samples
@@ -35,7 +56,20 @@ paths:
   /datasets:
     get:
       tags: [Datasets]
+      security:
+        - bearer: []
       summary: Get all datasets
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
+        - name: sample
+          description: Specify a sample name/id
+          in: query
+          type: string
+          required: true
       responses:
         200:
           description: Return datasets
@@ -47,7 +81,25 @@ paths:
   /channels:
     get:
       tags: [Channels]
-      summary: Get all channels
+      security:
+        - bearer: []
+      summary: Get channels for a dataset
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
+        - name: sample
+          description: Specify a sample name/id
+          in: query
+          type: string
+          required: true
+        - name: dataset
+          description: Specify a dataset name/id
+          in: query
+          type: string
+          required: true
       responses:
         200:
           description: Return channels
@@ -59,7 +111,30 @@ paths:
   /channel_metadata:
     get:
       tags: [ChannelMetadatas]
-      summary: Get all channel_metadatas
+      security:
+        - bearer: []
+      summary: Get channel_metadata
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
+        - name: sample
+          description: Specify a sample name/id
+          in: query
+          type: string
+          required: true
+        - name: dataset
+          description: Specify a dataset name/id
+          in: query
+          type: string
+          required: true
+        - name: channel
+          description: Specify a channel name/id
+          in: query
+          type: string
+          required: true
       responses:
         200:
           description: Return channel_metadatas
@@ -71,7 +146,80 @@ paths:
   /entity_feature:
     get:
       tags: [EntityFeatures]
-      summary: Get all entity_features
+      security:
+        - bearer: []
+      summary: Get entity_feature
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
+        - name: sample
+          description: Specify a sample name/id
+          in: query
+          type: string
+          required: true
+        - name: dataset
+          description: Specify a dataset name/id
+          in: query
+          type: string
+          required: true
+        - name: channel
+          description: Specify a channel name/id
+          in: query
+          type: string
+          required: true
+        - name: feature
+          description: Specify a feature name
+          in: query
+          type: string
+          enum:
+            - is_synapse
+            - synapse_keypoint
+            - synapse_parent
+            - synapse_ids
+            - is_neuron
+            - neuron_keypoint
+            - neuron_children
+            - neuron_ids
+            - voxel_list
+          required: true
+        - name: id
+          description: Specify a feature id
+          in: query
+          type: integer
+          required: false
+        - name: x
+          description: Specify x value
+          in: query
+          type: integer
+          required: false
+        - name: y
+          description: Specify y value
+          in: query
+          type: integer
+          required: false
+        - name: z
+          description: Specify z value
+          in: query
+          type: integer
+          required: false
+        - name: width
+          description: Specify width
+          in: query
+          type: integer
+          required: false
+        - name: height
+          description: Specify height
+          in: query
+          type: integer
+          required: false
+        - name: depth
+          description: Specify depth
+          in: query
+          type: integer
+          required: false
       responses:
         200:
           description: Return entity features
@@ -83,18 +231,76 @@ paths:
   /data:
     get:
       tags: [Data]
+      security:
+        - bearer: []
       summary: Get all data
+      produces:
+        - image/png
+        - image/tiff
+      parameters:
+        - name: experiment
+          description: Specify an experiment name/id
+          in: query
+          type: string
+          required: true
+        - name: sample
+          description: Specify a sample name/id
+          in: query
+          type: string
+          required: true
+        - name: dataset
+          description: Specify a dataset name/id
+          in: query
+          type: string
+          required: true
+        - name: x
+          description: Specify x value
+          in: query
+          type: integer
+          required: true
+        - name: y
+          description: Specify y value
+          in: query
+          type: integer
+          required: true
+        - name: z
+          description: Specify z value
+          in: query
+          type: integer
+          required: true
+        - name: width
+          description: Specify width
+          in: query
+          type: integer
+          required: true
+        - name: height
+          description: Specify height
+          in: query
+          type: integer
+          required: true
+        - name: channel
+          description: Specify a channel name/id
+          in: query
+          type: string
+          required: true
+        - name: format
+          description: Specify image format
+          in: query
+          type: string
+          required: false
       responses:
         200:
           description: Return data
-          schema:
-            type: array
-            items:
-              $ref: '#/definitions/Data'
+          #schema:
+            #type: array
+            #items:
+              #$ref: '#/definitions/Data'
 
   /mask:
     get:
       tags: [Masks]
+      security:
+        - bearer: []
       summary: Get all masks
       responses:
         200:

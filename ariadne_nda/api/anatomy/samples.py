@@ -1,2 +1,8 @@
-def search():
-    return {'message': 'samples'}, 200
+from ariadne_nda import butterfly
+
+
+def search(experiment):
+    return butterfly.proxy(
+        '/api/samples',
+        params=dict(experiment=experiment),
+    )

@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-UWSGI_PORT=${UWSGI_PORT:-80}
+UWSGI_PORT=${UWSGI_PORT:-8000}
 UWSGI_THREADS=${UWSGI_THREADS:-$(grep -c processor /proc/cpuinfo)}
 
 uwsgi \
