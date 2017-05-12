@@ -25,7 +25,7 @@ tags:
   - name: P3
     description: List of imaging sessions
   - name: P4
-    description: Imagging session info
+    description: Imaging session info
   - name: P5
     description: List of imaging runs in a session
   - name: P6
