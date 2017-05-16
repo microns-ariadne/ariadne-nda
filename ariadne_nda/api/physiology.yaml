@@ -523,13 +523,66 @@ definitions:
     properties:
       id:
         type: string
-        example: "f53d0538-331d-11e6-9f2d-80e65005a41c"
+        example: "595802a6-331f-11e6-a680-80e65005a41c"
       run:
         type: string
         example: "9c3836a3-331c-11e6-b1e5-80e65005a41c"
-      mask:
+      start_time_ms:
         type: string
-        example: "< ... serialized sparse array ... >"
+        example: "304039"
+      end_time_ms:
+        type: string
+        example: "305359"
+      stimuli:
+        type: array
+        items:
+          type: object
+          properties:
+            stimulus:
+              type: string
+              example: "morph_shape_1_45_22"
+            position:
+              type: string
+              example: "15.00, 0.00"
+            scale:
+              type: string
+              example: "35.00"
+      stim_on_times:
+        type: array
+        items:
+          type: string
+        example:
+          - "203"
+      stim_off_times:
+        type: array
+        items:
+          type: string
+        example:
+          - "283"
+      responses:
+        type: array
+        items:
+          type: string
+        example:
+          - "1"
+      response_times_ms:
+        type: array
+        items:
+          type: string
+        example:
+          - "567"
+      reward_amount:
+        type: array
+        items:
+          type: string
+        example:
+          - "25"
+      reward_time_ms:
+        type: array
+        items:
+          type: string
+        example:
+          - "580"
 
   RawEyeTracking:
     type: object
