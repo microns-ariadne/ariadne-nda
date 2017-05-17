@@ -1,2 +1,6 @@
+from ariadne_npdb.models import animal
+
+
 def search():
-    raise Exception('not implemented')
+    a = animal.Animal()
+    return a.get_all_ids()

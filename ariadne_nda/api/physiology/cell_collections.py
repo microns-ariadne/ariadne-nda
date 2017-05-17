@@ -1,2 +1,8 @@
+import connexion
+
+from ariadne_npdb.models import cell_collection
+
+
 def search():
-    raise Exception('not implemented')
+    cc = cell_collection.CellCollection()
+    return cc.get_all_ids()

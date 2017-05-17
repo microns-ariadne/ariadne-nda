@@ -16,6 +16,7 @@ INSTALL_REQ = [
     'Flask-Script>=2.0.5',
     'connexion>=1.1.5',
     'requests>=2.13.0',
+    'ariadne-npdb>=0.1',
 ]
 
 
@@ -42,5 +43,8 @@ setup(
     package_data=PACKAGE_DATA,
     include_package_data=True,
     entry_points=dict(console_scripts=['ariadne-nda = ariadne_nda.cli:manager.run']),
-    zip_safe=False
+    zip_safe=False,
+    dependency_links=[
+        'git+https://github.com/microns-ariadne/ariadne-npdb.git@40d96a8#egg=ariadne-npdb-0.1',
+    ],
 )
