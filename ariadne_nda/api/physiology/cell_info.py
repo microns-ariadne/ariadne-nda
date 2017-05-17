@@ -5,7 +5,7 @@ from ariadne_npdb.models import cell
 
 def get(cell_id):
     c = cell.Cell()
-    q = { 'id': cell_id }
+    q = {'id': cell_id}
     res = c.find_one(q)
     if not res:
         return connexion.problem(

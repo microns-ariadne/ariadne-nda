@@ -1,5 +1,3 @@
-import connexion
-
 from ariadne_npdb.models import cell_collection
 
 

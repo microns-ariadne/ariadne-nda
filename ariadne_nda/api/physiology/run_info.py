@@ -5,7 +5,7 @@ from ariadne_npdb.models import run
 
 def get(run_id):
     r = run.Run()
-    q = { 'id': run_id }
+    q = {'id': run_id}
     res = r.find_one(q)
     if not res:
         return connexion.problem(

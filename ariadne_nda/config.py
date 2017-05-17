@@ -9,7 +9,7 @@ class BaseConfig(object):
     NPDB_USERNAME = None
     NPDB_PASSWORD = None
     NPDB_DATABASE = 'npdb'
-    NPDB_PORT='27017'
+    NPDB_PORT = '27017'
 
 
 class Development(BaseConfig):

@@ -6,7 +6,7 @@ NPDB_HOST = config.get('NPDB_HOST')
 NPDB_USERNAME = config.get('NPDB_USERNAME')
 NPDB_PASSWORD = config.get('NPDB_PASSWORD')
 NPDB_DATABASE = config.get('NPDB_DATABASE')
-NPDB_SSL = { 'true': True, 'false': False}.get(
+NPDB_SSL = {'true': True, 'false': False}.get(
     config.get('NPDB_SSL').lower(), False)
 NPDB_PORT = int(config.get('NPDB_PORT'))
 
