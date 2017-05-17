@@ -1,2 +1,6 @@
+from ariadne_npdb.models import cell_collection
+
+
 def search():
-    return {'message': 'cell_collections'}, 200
+    cc = cell_collection.CellCollection()
+    return cc.get_all_ids()

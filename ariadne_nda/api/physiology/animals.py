@@ -1,2 +1,6 @@
+from ariadne_npdb.models import animal
+
+
 def search():
-    return {'message': 'animals'}, 200
+    a = animal.Animal()
+    return a.get_all_ids()

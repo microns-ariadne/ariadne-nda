@@ -17,295 +17,674 @@ securityDefinitions:
       following script to obtain a JWT access token from the BOSS:
 
       https://gist.github.com/jtriley/571dfbc94c5d73e11a5752852251f448
+tags:
+  - name: P1
+    description: List of experimental animals
+  - name: P2
+    description: Information about a particular animal
+  - name: P3
+    description: List of imaging sessions
+  - name: P4
+    description: Imaging session info
+  - name: P5
+    description: List of imaging runs in a session
+  - name: P6
+    description: Imaging parameters for a run
+  - name: P7
+    description: List of cell ids found within a run
+  - name: P8
+    description: Properties of a given cell
+  - name: P9
+    description: List of trials
+  - name: P10
+    description: Behaviorally relevant trial information
+  - name: P11
+    description: Raw eye tracking data for a trial
+  - name: P12
+    description: Functional time course data for a cell
+  - name: P13
+    description: List of global cells
+  - name: P14
+    description: List of named “collections” of cells
+  - name: P15
+    description: List of cells in a collection
+  - name: P16
+    description: List of all cell-wise metrics
+  - name: P17
+    description: Cell-wise metric info
+  - name: P18
+    description: Cell-wise metrics for a given cell or cells.
 
 paths:
   /animals:
     get:
-      tags: [Animals]
+      tags: [P1]
       security:
         - bearer: []
-      summary: Get all animals
+      description: Get all animals
       responses:
         200:
           description: Return animals
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Animal'
+            $ref: '#/definitions/Animal'
 
-  /animal_info:
+  /animal_info/{animal_id}:
     get:
-      tags: [AnimalInfos]
+      tags: [P2]
       security:
         - bearer: []
-      summary: Get animal info
+      description: Get animal info
+      parameters:
+        - $ref: '#/parameters/animal_id'
       responses:
         200:
           description: Return animal_info
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/AnimalInfo'
+            $ref: '#/definitions/AnimalInfo'
 
-  /sessions:
+  /sessions/{animal_id}:
     get:
-      tags: [Sessions]
+      tags: [P3]
       security:
         - bearer: []
-      summary: Get all sessions
+      description: Get all sessions
+      parameters:
+        - $ref: '#/parameters/animal_id'
       responses:
         200:
           description: Return sessions
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Session'
+            $ref: '#/definitions/Session'
 
-  /session_info:
+  /session_info/{session_id}:
     get:
-      tags: [SessionInfo]
+      tags: [P4]
       security:
         - bearer: []
-      summary: Get session info
+      description: Get session info
+      parameters:
+        - $ref: '#/parameters/session_id'
       responses:
         200:
           description: Return session info
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/SessionInfo'
+            $ref: '#/definitions/SessionInfo'
 
-  /runs:
+  /runs/{session_id}:
     get:
-      tags: [Runs]
+      tags: [P5]
       security:
         - bearer: []
-      summary: Get all runs
+      description: Get list of run ids for a session
+      parameters:
+        - $ref: '#/parameters/session_id'
       responses:
         200:
           description: Return runs
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Run'
+            $ref: '#/definitions/Run'
 
-  /run_info:
+  /run_info/{run_id}:
     get:
-      tags: [RunInfo]
+      tags: [P6]
       security:
         - bearer: []
-      summary: Get run info
+      description: Get run info
+      parameters:
+        - $ref: '#/parameters/run_id'
       responses:
         200:
           description: Return run info
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/RunInfo'
+            $ref: '#/definitions/RunInfo'
 
-  /cells:
+  /cells/{run_id}:
     get:
-      tags: [Cells]
+      tags: [P7]
       security:
         - bearer: []
-      summary: Get all cells
+      description: Get all cell ids for a given run
+      parameters:
+        - $ref: '#/parameters/run_id'
       responses:
         200:
           description: Return cells
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Cell'
+            $ref: '#/definitions/Cell'
 
-  /cell_info:
+  /cell_info/{cell_id}:
     get:
-      tags: [CellInfo]
+      tags: [P8]
       security:
         - bearer: []
-      summary: Get cell info
+      description: Get cell info
+      parameters:
+        - $ref: '#/parameters/cell_id'
       responses:
         200:
           description: Return cell info
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/CellInfo'
+            $ref: '#/definitions/CellInfo'
 
-  /trials:
+  /trials/{run_id}:
     get:
-      tags: [Trials]
+      tags: [P9]
       security:
         - bearer: []
-      summary: Get all trials
+      description: Get list of all trial ids
+      parameters:
+        - $ref: '#/parameters/run_id'
       responses:
         200:
-          description: Return trials
+          description: Return all trial ids
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/Trial'
+            $ref: '#/definitions/Trial'
 
-  /trial_info:
+  /trial_info/{trial_id}:
     get:
-      tags: [TrialInfo]
+      tags: [P10]
       security:
         - bearer: []
-      summary: Get trial info
+      description: Get trial info
+      parameters:
+        - $ref: '#/parameters/trial_id'
       responses:
         200:
           description: Return trial info
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/TrialInfo'
+            $ref: '#/definitions/TrialInfo'
 
-  /raw_eye_tracking:
+  /raw_eye_tracking/{trial_id}:
     get:
-      tags: [RawEyeTracking]
+      tags: [P11]
       security:
         - bearer: []
-      summary: Get raw eye tracking
+      description: Get raw eye tracking for trial
+      parameters:
+        - $ref: '#/parameters/trial_id'
       responses:
         200:
           description: Return raw eye tracking
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/RawEyeTracking'
+            $ref: '#/definitions/RawEyeTracking'
 
-  /functional_time_course:
+  /functional_time_course/{run_id}/{cell_id}:
     get:
-      tags: [FunctionalTimeCourse]
+      tags: [P12]
       security:
         - bearer: []
-      summary: Get functional time course
+      description: Get functional time course
+      parameters:
+        - $ref: '#/parameters/run_id'
+        - $ref: '#/parameters/cell_id'
+        - $ref: '#/parameters/channel_id_query'
+        - $ref: '#/parameters/trial_id_query'
       responses:
         200:
           description: Return functional time course
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/FunctionalTimeCourse'
+            $ref: '#/definitions/FunctionalTimeCourse'
 
-  /global_cells:
+  /global_cells/{animal_id}:
     get:
-      tags: [GlobalCells]
+      tags: [P13]
       security:
         - bearer: []
-      summary: Get all global cells
+      description: Get all global cells for an animal
+      parameters:
+        - $ref: '#/parameters/animal_id'
       responses:
         200:
           description: Return global cells
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/GlobalCell'
+            $ref: '#/definitions/GlobalCell'
 
   /cell_collections:
     get:
-      tags: [CellCollections]
+      tags: [P14]
       security:
         - bearer: []
-      summary: Get all cell collections
+      description: Get list of cell collections
       responses:
         200:
           description: Return cell collections
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/CellCollection'
+            $ref: '#/definitions/CellCollection'
 
-  /cell_collection_info:
+  /cell_collection_info/{cell_collection_id}:
     get:
-      tags: [CellCollectionInfos]
+      tags: [P15]
       security:
         - bearer: []
-      summary: Get cell collection info
+      description: Get cell collection info
+      parameters:
+        - $ref: '#/parameters/cell_collection_id'
       responses:
         200:
           description: Return cell collection info
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/CellCollectionInfo'
+            $ref: '#/definitions/CellCollectionInfo'
 
-  /per_cell_metrics:
+  /per_cell_metrics/{cell_id}:
     get:
-      tags: [PerCellMetrics]
+      tags: [P16]
       security:
         - bearer: []
-      summary: Get all per cell metrics
+      description: Get all per cell metrics
+      parameters:
+        - $ref: '#/parameters/cell_id'
       responses:
         200:
-          description: Return experiments
+          description: Return cell metric ids
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/PerCellMetrics'
+            $ref: '#/definitions/PerCellMetrics'
 
-  /per_cell_metric:
+  /per_cell_metric/{trial_id}/{cell_id}/{cell_metric_id}:
     get:
-      tags: [PerCellMetric]
+      tags: [P17]
       security:
         - bearer: []
-      summary: Get per cell metric
+      description: Get per cell metric
+      parameters:
+        - $ref: '#/parameters/trial_id'
+        - $ref: '#/parameters/cell_id'
+        - $ref: '#/parameters/cell_metric_id'
       responses:
         200:
-          description: Return per cell metric
+          description: Return cell metric value
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/PerCellMetric'
+            $ref: '#/definitions/PerCellMetric'
 
-  /per_cell_metric_info:
+  /per_cell_metric_info/{cell_metric_id}:
     get:
-      tags: [PerCellMetricInfos]
+      tags: [P18]
       security:
         - bearer: []
-      summary: Get per cell metric info
+      description: Get per cell metric info
+      parameters:
+        - $ref: '#/parameters/cell_metric_id'
       responses:
         200:
-          description: Return per cell metric info
+          description: Return cell metric info
           schema:
-            type: array
-            items:
-              $ref: '#/definitions/PerCellMetricInfo'
+            $ref: '#/definitions/PerCellMetricInfo'
 
+parameters:
+  animal_id:
+    name: animal_id
+    in: path
+    description: animal identifier
+    required: true
+    type: string
+
+  session_id:
+    name: session_id
+    in: path
+    description: session identifier
+    required: true
+    type: string
+
+  run_id:
+    name: run_id
+    in: path
+    description: run identifier
+    required: true
+    type: string
+
+  cell_id:
+    name: cell_id
+    in: path
+    description: cell identifier
+    required: true
+    type: string
+
+  cell_collection_id:
+    name: cell_collection_id
+    in: path
+    description: cell collection identifier
+    required: true
+    type: string
+
+  trial_id:
+    name: trial_id
+    in: path
+    description: trial identifier
+    required: true
+    type: string
+
+  cell_metric_id:
+    name: cell_metric_id
+    in: path
+    description: cell metric identifier
+    required: true
+    type: string
+
+  trial_id_query:
+    name: trial_id
+    in: query
+    description: trial identifier
+    required: false
+    type: string
+
+  channel_id_query:
+    name: channel_id
+    in: query
+    description: channel identifier
+    required: false
+    type: string
 
 definitions:
   Animal:
-    type: object
+    type: array
+    description: >
+      A list of animal uuids
+    items:
+      type: string
+    example:
+      - "86b143bd-330f-11e6-a020-80e65005a41c"
+      - "ca52dad9-330f-11e6-9f0a-80e65005a41c"
+
   AnimalInfo:
     type: object
+    description: >
+      Information about a particular animal
+    properties:
+      id:
+        type: string
+        example: 86b143bd-330f-11e6-a020-80e65005a41c
+      name:
+        type: string
+        example: JR001
+      receipt_date:
+        type: string
+        example: 2016-04-06
+      sex:
+        type: string
+        example: female
+
   Session:
-    type: object
+    type: array
+    description: >
+      A list of session uuids
+    items:
+      type: string
+    example:
+      - "94d54f73-331b-11e6-a84b-80e65005a41c"
+      - "12def9a1-331d-11e6-b2ea-80e65005a41c"
+
   SessionInfo:
     type: object
+    description: >
+      Information about a particular session
+    properties:
+      id:
+        type: string
+        example: "94d54f73-331b-11e6-a84b-80e65005a41c"
+      animal:
+        type: string
+        example: "86b143bd-330f-11e6-a020-80e65005a41c"
+      date:
+        type: string
+        example: "2016-06-15"
+      start_time:
+        type: string
+        example: "14:45"
+      microscope:
+        type: string
+        example: "tefo_1"
+      microscope_rev:
+        type: string
+        example: "c5674aeb6bdac1e47b9a43f342186fa2"
+
   Run:
-    type: object
+    type: array
+    description: >
+      List of run ids for a given session
+    items:
+      type: string
+    example:
+      - "9c3836a3-331c-11e6-b1e5-80e65005a41c"
+      - "4d9f46f8-331d-11e6-a303-80e65005a41c"
+      - "52c26200-331d-11e6-8343-80e65005a41c"
+
   RunInfo:
     type: object
+    description: >
+      Information about a particular run
+    properties:
+      id:
+        type: string
+        example: "9c3836a3-331c-11e6-b1e5-80e65005a41c"
+      session:
+        type: string
+        example: "94d54f73-331b-11e6-a84b-80e65005a41c"
+      run_number:
+        type: string
+        example: "1"
+      imaging_fov_um:
+        type: string
+        example: "500, 500, 250"
+      coverslip_depth_um:
+        type: string
+        example: "223"
+      start_depth_um:
+        type: string
+        example: "200"
+      stride_um:
+        type: string
+        example: "5, 5, 10"
+      stages_um:
+        type: string
+        example: "2302, 403, 389"
+      vol_rate:
+        type: string
+        example: "3.4"
+
   Cell:
-    type: object
+    type: array
+    description: >
+      List of cell ids for a given run
+    items:
+      type: string
+    example:
+      - "f53d0538-331d-11e6-9f2d-80e65005a41c"
+      - "fe0fe18a-331d-11e6-a6ae-80e65005a41c"
+
   CellInfo:
     type: object
+    description: >
+      Information about a particular run
+    properties:
+      id:
+        type: string
+        example: "f53d0538-331d-11e6-9f2d-80e65005a41c"
+      run:
+        type: string
+        example: "9c3836a3-331c-11e6-b1e5-80e65005a41c"
+      mask:
+        type: string
+        example: "< ... serialized sparse array ... >"
+
   Trial:
-    type: object
+    type: array
+    description: >
+      List of trial ids for a given run
+    items:
+      type: string
+    example:
+      - "595802a6-331f-11e6-a680-80e65005a41c"
+      - "601c121e-331f-11e6-8939-80e65005a41c"
+      - "663ca500-331f-11e6-83a6-80e65005a41c"
+
   TrialInfo:
     type: object
+    description: >
+      Information about a particular trial
+    properties:
+      id:
+        type: string
+        example: "595802a6-331f-11e6-a680-80e65005a41c"
+      run:
+        type: string
+        example: "9c3836a3-331c-11e6-b1e5-80e65005a41c"
+      start_time_ms:
+        type: string
+        example: "304039"
+      end_time_ms:
+        type: string
+        example: "305359"
+      stimuli:
+        type: array
+        items:
+          type: object
+          properties:
+            stimulus:
+              type: string
+              example: "morph_shape_1_45_22"
+            position:
+              type: string
+              example: "15.00, 0.00"
+            scale:
+              type: string
+              example: "35.00"
+      stim_on_times:
+        type: array
+        items:
+          type: string
+        example:
+          - "203"
+      stim_off_times:
+        type: array
+        items:
+          type: string
+        example:
+          - "283"
+      responses:
+        type: array
+        items:
+          type: string
+        example:
+          - "1"
+      response_times_ms:
+        type: array
+        items:
+          type: string
+        example:
+          - "567"
+      reward_amount:
+        type: array
+        items:
+          type: string
+        example:
+          - "25"
+      reward_time_ms:
+        type: array
+        items:
+          type: string
+        example:
+          - "580"
+
   RawEyeTracking:
     type: object
+    description: >
+      Information about a particular trial
+    properties:
+      azimuth_deg:
+        type: string
+        example: "< ... serialized float array ... >"
+      elevation_deg:
+        type: string
+        example: "< ... serialized float array ... >"
+      times_ms:
+        type: string
+        example: "< ... serialized float array ... >"
+
   FunctionalTimeCourse:
     type: object
+    description: >
+      Raw functional time course for run and cell
+    properties:
+      data:
+        type: string
+        example: "< ... serialized float array ... >"
+
   GlobalCell:
-    type: object
+    type: array
+    description: >
+      List of global cell ids for an animal
+    items:
+      type: string
+    example:
+      - "f0fa426e-3320-11e6-b4bd-80e65005a41c"
+      - "f98b6987-3320-11e6-bfe7-80e65005a41c"
+      - "ffbae5c5-3320-11e6-9e6b-80e65005a41c"
+
   CellCollection:
-    type: object
+    type: array
+    description: >
+      List of cell collection ids
+    items:
+      type: string
+    example:
+      - "4b70600c-3321-11e6-97a5-80e65005a41c"
+      - "63ae2fdc-3321-11e6-a67b-80e65005a41c"
+
   CellCollectionInfo:
     type: object
+    description: >
+      Information about a cell collection
+    properties:
+      id:
+        type: string
+        example: "4b70600c-3321-11e6-97a5-80e65005a41c"
+      name:
+        type: string
+        example: "all_em_1"
+      description:
+        type: string
+        example: "All identified cells in the primary EM volume"
+      cells:
+        type: array
+        items:
+          type: string
+        example:
+          - "e4a2d9ee-3321-11e6-abe6-80e65005a41c"
+          - "ea02049e-3321-11e6-9093-80e65005a41c"
+          - "efa95e4f-3321-11e6-8a82-80e65005a41c"
+
   PerCellMetrics:
-    type: object
+    type: array
+    description: >
+      List of cell metric ids
+    items:
+      type: string
+    example:
+      - "1f8d4eb8-3322-11e6-98f5-80e65005a41c"
+      - "2523c3b5-3322-11e6-b2dd-80e65005a41c"
+
   PerCellMetricInfo:
     type: object
+    description: >
+      Information about a cell metric
+    properties:
+      id:
+        type: string
+        example: "1f8d4eb8-3322-11e6-98f5-80e65005a41c"
+      name:
+        type: string
+        example: "visual_responsivity"
+      revision:
+        type: string
+        example: "6d9293a39d21124ab4f8aa2aa7c3c058"
+
   PerCellMetric:
     type: object
+    description: >
+      Information about a cell metric
+    properties:
+      metric:
+        type: string
+        example: 1f8d4eb8-3322-11e6-98f5-80e65005a41c
+      value:
+        type: string
+        example: "1.05689"
