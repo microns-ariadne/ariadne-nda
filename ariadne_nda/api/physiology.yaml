@@ -295,14 +295,13 @@ paths:
           schema:
             $ref: '#/definitions/PerCellMetric'
 
-  /per_cell_metric_info/{cell_id}/{cell_metric_id}:
+  /per_cell_metric_info/{cell_metric_id}:
     get:
       tags: [P18]
       security:
         - bearer: []
       description: Get per cell metric info
       parameters:
-        - $ref: '#/parameters/cell_id'
         - $ref: '#/parameters/cell_metric_id'
       responses:
         200:
