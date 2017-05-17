@@ -8,7 +8,8 @@ RUN apt-get update \
        python3-dev \
        python3-pip \
        libpcre3 \
-       libpcre3-dev
+       libpcre3-dev \
+       git
 
 RUN pip3 install -U pip setuptools wheel
 
@@ -27,6 +28,7 @@ RUN pip3 --no-cache-dir install -e /usr/src/app/
 RUN apt-get remove -y \
       build-essential \
       libpcre3-dev \
+      git \
   && apt-get autoremove -y \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
