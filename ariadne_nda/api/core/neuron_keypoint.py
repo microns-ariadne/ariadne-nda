@@ -10,6 +10,7 @@ def get(collection, experiment, channel, resolution, id):
             sample=collection,
             dataset=experiment,
             channel=channel,
+            resolution=resolution,
             feature='neuron_keypoint',
             id=id,
         )

@@ -13,6 +13,7 @@ def get(collection, experiment, channel, resolution, xstart, xstop, ystart,
             sample=collection,
             dataset=experiment,
             channel=channel,
+            resolution=resolution,
             feature='all_neurons',
         )
     )
