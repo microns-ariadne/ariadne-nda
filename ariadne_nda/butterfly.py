@@ -21,19 +21,15 @@ def proxy(url, params=None, json=False):
 
 def convert_bounding_box(resolution, xstart, xstop, ystart, ystop, zstart,
                          zstop):
-    # Scale all by the resolution
     scale = 2 ** resolution
 
-    # Integer division for <x> and <y> origin
-    x = xstart // scale
-    y = ystart // scale
-    z = zstart
+    x = xstart
+    y = ystart
+    z = zstart * scale
 
-    depth = zstop - zstart
-
-    # Integer division of differences for <width> and <height>
-    height = (ystop - ystart) // scale
-    width = (xstop - xstart) // scale
+    width = xstop - xstart
+    height = ystop - ystart
+    depth = (zstop - zstart) * scale
 
     return x, y, z, width, height, depth
 
