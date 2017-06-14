@@ -14,10 +14,14 @@ def get(collection, experiment, channel, id):
             id=id,
         )
     )
+    pre = ret['synapse_parent_pre']
+    post = ret['synapse_parent_post']
+
     parents = {}
-    for parent in ret:
-        if parent.endswith('_pre'):
-            parents[ret[parent]] = 1
-        if parent.endswith('_post'):
-            parents[ret[parent]] = 2
+    if pre == post:
+        parents[pre] = 3
+    else:
+        parents[pre] = 1
+        parents[post] = 2
+
     return dict(parent_neurons=parents)
